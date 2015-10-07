@@ -1,0 +1,94 @@
+{if $ext_shopexpressformright}
+<link href="/libs/css/ShopExpressFormRight.css" type="text/css" rel="stylesheet">
+<link href="/libs/css/animate.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="/libs/js/ShopExpressFormRight.js"></script>
+<script type="text/javascript" src="/libs/js/ContactForm.js"></script>
+<div class="serf-widget ShopExpressRightFormHandler">
+    <div class="serf-widget-bg animation-heartbit">
+	    <div class="serf-widget-icon"></div>
+    </div>
+</div>
+<div class="ShopExpressRightForm" data-hidden="true">
+	<div class="ShopExpressRightForm-middle">
+		<div class="serf-arrow ShopExpressRightFormHandler"><div class="serf-arrow-wrapper"><div class="serf-arrow-part"></div><div class="serf-arrow-part serf-bottom"></div></div></div>
+		<div class="ShopExpressRightForm-inner">
+			<form role="form" method="post" enctype='multipart/form-data' action="" id="ShopExpressRightForm">
+				<p class="h3 text-center">— {$shopexpressformright_hello|default:"Напишите письмо, мы с радостью на него ответим."}</p>
+				<div class="alert alert-danger text-center hide"></div>
+				{foreach from=$shopexpressformright_fields item=field name=fieldscounter}
+				{if $field.editable eq 'true'}
+
+				{if $field.htmltype eq 'textfield'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<input class="form-control" type="text" id="{$field.htmltype}{$field.name|capitalize}" name="shopexpressformright[{$field.name}]" value="{$field.value}" placeholder="{$field.description}" />
+				</div>
+				{/if}
+				{if $field.htmltype eq 'files'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<input class="form-control" type="file" id="{$field.htmltype}{$field.name|capitalize}" name="files[{$field.name}]" placeholder="{$field.description}" />
+				</div>
+				{/if}
+				{if $field.htmltype eq 'datefield'}
+				{assign var=datepicker value=1}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<input class="form-control" type="text" class="datefield" data-date-format="dd.mm.yyyy" data-date="01.01.2014" id="{$field.htmltype}{$field.name|capitalize}" name="shopexpressformright[{$field.name}]" value="{$field.value}" placeholder="{$field.description}" autocomplete=off />
+				</div>
+				{/if}
+				{if $field.htmltype eq 'textarea'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<textarea class="form-control" class="input-xlarge" id="{$field.htmltype}{$field.name|capitalize}" rows="3" name="shopexpressformright[{$field.name}]" placeholder="{$field.description}">{$field.value}</textarea>
+				</div>
+				{/if}
+				{if $field.htmltype eq 'adresfield'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="textarea{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<textarea class="form-control" class="input-xlarge" id="{$field.htmltype}{$field.name|capitalize}" rows="3" name="shopexpressformright[{$field.name}]" placeholder="{$field.description}">{$field.value}</textarea>
+				</div>
+				{/if}
+				{if $field.htmltype eq 'combostore'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<select class="form-control" name="shopexpressformright[{$field.name}]" id="{$field.htmltype}{$field.name|capitalize}">
+					{foreach from=$GLOBS[$field.name] item=field_item key=field_item_key}
+						<option value="{$field_item_key}">{$field_item}</option>
+					{/foreach}
+					</select>
+					{if $field.description}<span class="help-block">{$field.description}</span>{/if}
+					</div>
+				</div>
+				{/if}
+				{if $field.htmltype eq 'delivery'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<span class="help-inline">Поле этого типа можно использовать только в корзине.</span>
+				</div>
+				{/if}
+				{/if}
+				{/foreach}
+			  	<div class="form-group text-center">
+				  	<input type="hidden" name="antispam" value="" />
+				  	<input type="hidden" name="from" value="{$shopexpressformright_from}" />
+				    <button type="submit" class="btn-submit btn-lg">{$shopexpressformright_button|default:'Отправить форму'}</button>
+			  	</div>
+			</form>
+			{if $datepicker}<link rel="stylesheet" type="text/css" href="/media0/css/datepicker.css" media="screen" /><script type="text/javascript" src="/media0/js/bootstrap-datepicker.js"></script>{/if}
+			<script>
+			$(document).ready(function()
+			{
+				$("input[name*=antispam]").val('{$GLOBS.USER_ANTISPAM_KEY}');
+				{if $datepicker} $('.datefield').datepicker(); {/if}
+				{if $GLOBS.YACOUNTER}
+				try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('ClickForm'); }
+				catch(e) { console.log('Счетчик Яндекс.Метрика не установлен.'); }
+				{/if}
+				$('#ShopExpressRightForm').ContactForm( { ok : '{$shopexpressformright_answer|default:"Спасибо, в ближайшее время с Вами свяжется наш менеджер."}', color : 'white' });
+			});
+			</script>
+		</div>
+	</div>
+</div>
+{/if}

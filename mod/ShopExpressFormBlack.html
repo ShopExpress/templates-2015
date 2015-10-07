@@ -1,0 +1,102 @@
+{if $ext_shopexpressformblack}
+<link href="/libs/css/ShopExpressFormBlack.css" type="text/css" rel="stylesheet">
+<link href="/libs/css/animate.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="/libs/js/ShopExpressFormBlack.js"></script>
+<script type="text/javascript" src="/libs/js/ContactForm.js"></script>
+
+<div class="sebf-widget ShopExpressBlackFormHandler">
+    <div class="sebf-widget-bg animation-blink">
+	    <div class="sebf-widget-icon"></div>
+    </div>
+</div>
+<div class="ShopExpressBlackFormWrapper" data-hidden="true">
+<div class="ShopExpressBlackFormTable">
+	<div class="ShopExpressBlackForm">
+		<button type="button" class="close ShopExpressBlackFormHandler">&times;</button>
+		<form class="form-horizontal" role="form" id="ShopExpressFormBlack" method="post" enctype='multipart/form-data' action="">
+			<p class="h3">{$shopexpressformblack_hello|default:"Закажите звонок"}
+				<small>И менеджеры свяжутся с Вами<br> в течении 30 минут</small>
+			</p>
+			<div class="alert alert-danger text-center hide"></div>
+
+			{foreach from=$shopexpressformblack_fields item=field name=fieldscounter}
+			{if $field.editable eq 'true'}
+			
+			{if $field.htmltype eq 'textfield'}
+			<div class="form-group {if $field.error}has-error{/if}">
+				<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+				<div><input class="form-control" type="text" id="{$field.htmltype}{$field.name|capitalize}" name="shopexpressformblack[{$field.name}]" value="{$field.value}" placeholder="{$field.description}" /></div>
+			</div>
+			{/if}
+			{if $field.htmltype eq 'files'}
+			<div class="form-group {if $field.error}has-error{/if}">
+				<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+				<div><input class="form-control" type="file" id="{$field.htmltype}{$field.name|capitalize}" name="files[{$field.name}]" placeholder="{$field.description}" /></div>
+			</div>
+			{/if}
+			{if $field.htmltype eq 'datefield'}
+			{assign var=datepicker value=1}
+			<div class="form-group {if $field.error}has-error{/if}">
+				<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+				<div><input class="form-control" type="text" class="datefield" data-date-format="dd.mm.yyyy" data-date="01.01.2014" id="{$field.htmltype}{$field.name|capitalize}" name="shopexpressformblack[{$field.name}]" value="{$field.value}" placeholder="{$field.description}" autocomplete=off /></div>
+			</div>
+			{/if}
+			{if $field.htmltype eq 'textarea'}
+			<div class="form-group {if $field.error}has-error{/if}">
+				<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+				<div><textarea class="form-control" class="input-xlarge" id="{$field.htmltype}{$field.name|capitalize}" rows="3" name="shopexpressformblack[{$field.name}]" placeholder="{$field.description}">{$field.value}</textarea></div>
+			</div>
+			{/if}
+			{if $field.htmltype eq 'adresfield'}
+			<div class="form-group {if $field.error}has-error{/if}">
+				<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+				<div><textarea class="form-control" class="input-xlarge" id="{$field.htmltype}{$field.name|capitalize}" rows="3" name="shopexpressformblack[{$field.name}]" placeholder="{$field.description}">{$field.value}</textarea></div>
+			</div>
+			{/if}
+			{if $field.htmltype eq 'combostore'}
+			<div class="form-group {if $field.error}has-error{/if}">
+				<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+				<div><select class="form-control" name="shopexpressformblack[{$field.name}]" id="{$field.htmltype}{$field.name|capitalize}">
+				{foreach from=$GLOBS[$field.name] item=field_item key=field_item_key}
+					<option value="{$field_item_key}">{$field_item}</option>
+				{/foreach}
+				</select>
+				{if $field.description}<span class="help-block">{$field.description}</span>{/if}
+				</div>
+			</div>
+			{/if}
+			{if $field.htmltype eq 'delivery'}
+			<div class="form-group {if $field.error}has-error{/if}">
+				<label class="control-label" for="textarea{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+				<span class="help-inline">Поле этого типа можно использовать только в корзине.</span>
+			</div>
+			{/if}
+			{/if}
+			{/foreach}
+		  	<div class="form-group text-center">
+			  	<input type="hidden" name="antispam" value="" />
+			  	<input type="hidden" name="from" value="{$shopexpressformblack_from}" />
+			    <button type="submit" class="btn-submit btn-lg">{$shopexpressformblack_button|default:'Отправить'}</button>
+			    <br />
+			    <br />
+			    <i>Ваши данные будут защищены условиями конфиденциальности и не<br> будут переданы третьим лицам</i>
+		  	</div>
+		</form>
+		{if $datepicker}<link rel="stylesheet" type="text/css" href="/media0/css/datepicker.css" media="screen" /><script type="text/javascript" src="/media0/js/bootstrap-datepicker.js"></script>{/if}
+		<script>
+		$(document).ready(function()
+		{
+			$("input[name*=antispam]").val('{$GLOBS.USER_ANTISPAM_KEY}');
+			{if $datepicker} $('.datefield').datepicker(); {/if}
+			{if $GLOBS.YACOUNTER}
+			try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('ClickForm'); }
+			catch(e) { console.log('Счетчик Яндекс.Метрика не установлен.'); }
+			{/if}
+			
+			$('#ShopExpressFormBlack').ContactForm( { ok : '{$shopexpressformblack_answer|default:"Спасибо, в ближайшее время с Вами свяжется наш менеджер."}', color : '' });
+		});
+		</script>
+	</div>
+</div>
+</div>
+{/if}
