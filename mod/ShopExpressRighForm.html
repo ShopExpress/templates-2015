@@ -1,0 +1,376 @@
+{if $ext_contactform}
+<style>
+	@font-face {
+		font-family: 'fontello-contactform-icons';
+		src: url('/libs/fonts/fontello-contactform-icons.eot');
+		src: url('/libs/fonts/fontello-contactform-icons.eot#iefix') format('embedded-opentype'),
+		url('/libs/fonts/fontello-contactform-icons.svg#fontello-contactform-icons') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+	@font-face {
+	font-family: 'fontello-contactform-icons';
+	src: url('data:application/octet-stream;base64,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') format('woff'),
+	url('data:application/octet-stream;base64,AAEAAAAOAIAAAwBgT1MvMj4rSOwAAADsAAAAVmNtYXDoFenQAAABRAAAAVJjdnQgAAAAAAAAB7QAAAAKZnBnbYiQkFkAAAfAAAALcGdhc3AAAAAQAAAHrAAAAAhnbHlmZf7OSAAAApgAAAF8aGVhZAd7kEEAAAQUAAAANmhoZWEHlwNUAAAETAAAACRobXR4CuEAAAAABHAAAAAMbG9jYQBCAL4AAAR8AAAACG1heHAAkAvTAAAEhAAAACBuYW1lzJ0bHQAABKQAAALNcG9zdOmvR1MAAAd0AAAAOHByZXDdawOFAAATMAAAAHsAAQOgAZAABQAIAnoCvAAAAIwCegK8AAAB4AAxAQIAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA6ALoBANS/2oAWgMLAJcAAAABAAAAAAAAAAAAAwAAAAMAAAAcAAEAAAAAAEwAAwABAAAAHAAEADAAAAAIAAgAAgAAAADoAugE//8AAAAA6ALoBP//AAAX/xf+AAEAAAAAAAAAAAAAAQYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAD/aQPoAsMAJgAGsyILAS0rARQOASMiJwYHBgcGJic1JjYmPwE2PwE+Aj8BLgEnND4CMzIeAQPohuaIJypukxskCg4DAgQCAwwEDRQHFBAHD1hkAVCEvGSI5oYBXmGkYARhJggEAQwKAQIIBAMPBQ4WCBwcEyoyklRJhGA4YKQAAAAB////+QMSAwsAUAAGsyAGAS0rJRQGBwYHBiMiLgEvASYnLgEnJi8BLgEvASY3NDc2Nz4BMzIXFhceAhceAhUUDgIHFB8BHgE1HgEXMhYfARY3Mj4CNzIeAR8BFhcWFxYDEgwGCzk0MxAcJAg7NitImCwbEwoICAQHAwEdHxwOMA8IBAoUBhQUBwIQCCAmHgEDBAEOKm5MARIFCwYHCh4eIAwHEBgCQRMMJwMCng8wDhwgHAQKAxUUGyyYSCs2HBcQEiAODzQ0OAwGDAIDKAooHg8CGBAICyIaIggFCAsDFgFNbioMAgUDAR4oHgEIEAIlCwYTCgQAAAEAAAABAAB9Pg1qXw889QALA+gAAAAA0jq7jAAAAADSOpFc////aQPoAwsAAAAIAAIAAAAAAAAAAQAAA1L/agBaA+gAAP/+A+gAAQAAAAAAAAAAAAAAAAAAAAMD6AAAA+gAAAMRAAAAAAAAAEIAvgABAAAAAwBRAAEAAAAAAAIAAAAQAHMAAAAYC3AAAAAAAAAAEgDeAAEAAAAAAAAANQAAAAEAAAAAAAEACAA1AAEAAAAAAAIABwA9AAEAAAAAAAMACABEAAEAAAAAAAQACABMAAEAAAAAAAUACwBUAAEAAAAAAAYACABfAAEAAAAAAAoAKwBnAAEAAAAAAAsAEwCSAAMAAQQJAAAAagClAAMAAQQJAAEAEAEPAAMAAQQJAAIADgEfAAMAAQQJAAMAEAEtAAMAAQQJAAQAEAE9AAMAAQQJAAUAFgFNAAMAAQQJAAYAEAFjAAMAAQQJAAoAVgFzAAMAAQQJAAsAJgHJQ29weXJpZ2h0IChDKSAyMDE1IGJ5IG9yaWdpbmFsIGF1dGhvcnMgQCBmb250ZWxsby5jb21mb250ZWxsb1JlZ3VsYXJmb250ZWxsb2ZvbnRlbGxvVmVyc2lvbiAxLjBmb250ZWxsb0dlbmVyYXRlZCBieSBzdmcydHRmIGZyb20gRm9udGVsbG8gcHJvamVjdC5odHRwOi8vZm9udGVsbG8uY29tAEMAbwBwAHkAcgBpAGcAaAB0ACAAKABDACkAIAAyADAAMQA1ACAAYgB5ACAAbwByAGkAZwBpAG4AYQBsACAAYQB1AHQAaABvAHIAcwAgAEAAIABmAG8AbgB0AGUAbABsAG8ALgBjAG8AbQBmAG8AbgB0AGUAbABsAG8AUgBlAGcAdQBsAGEAcgBmAG8AbgB0AGUAbABsAG8AZgBvAG4AdABlAGwAbABvAFYAZQByAHMAaQBvAG4AIAAxAC4AMABmAG8AbgB0AGUAbABsAG8ARwBlAG4AZQByAGEAdABlAGQAIABiAHkAIABzAHYAZwAyAHQAdABmACAAZgByAG8AbQAgAEYAbwBuAHQAZQBsAGwAbwAgAHAAcgBvAGoAZQBjAHQALgBoAHQAdABwADoALwAvAGYAbwBuAHQAZQBsAGwAbwAuAGMAbwBtAAAAAAIAAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAQIBAwdjb21tZW50BXBob25lAAAAAQAB//8ADwAAAAAAAAAAAAAAALAALCCwAFVYRVkgIEu4AA5RS7AGU1pYsDQbsChZYGYgilVYsAIlYbkIAAgAY2MjYhshIbAAWbAAQyNEsgABAENgQi2wASywIGBmLbACLCBkILDAULAEJlqyKAEKQ0VjRVJbWCEjIRuKWCCwUFBYIbBAWRsgsDhQWCGwOFlZILEBCkNFY0VhZLAoUFghsQEKQ0VjRSCwMFBYIbAwWRsgsMBQWCBmIIqKYSCwClBYYBsgsCBQWCGwCmAbILA2UFghsDZgG2BZWVkbsAErWVkjsABQWGVZWS2wAywgRSCwBCVhZCCwBUNQWLAFI0KwBiNCGyEhWbABYC2wBCwjISMhIGSxBWJCILAGI0KxAQpDRWOxAQpDsABgRWOwAyohILAGQyCKIIqwASuxMAUlsAQmUVhgUBthUllYI1khILBAU1iwASsbIbBAWSOwAFBYZVktsAUssAdDK7IAAgBDYEItsAYssAcjQiMgsAAjQmGwAmJmsAFjsAFgsAUqLbAHLCAgRSCwC0NjuAQAYiCwAFBYsEBgWWawAWNgRLABYC2wCCyyBwsAQ0VCKiGyAAEAQ2BCLbAJLLAAQyNEsgABAENgQi2wCiwgIEUgsAErI7AAQ7AEJWAgRYojYSBkILAgUFghsAAbsDBQWLAgG7BAWVkjsABQWGVZsAMlI2FERLABYC2wCywgIEUgsAErI7AAQ7AEJWAgRYojYSBksCRQWLAAG7BAWSOwAFBYZVmwAyUjYUREsAFgLbAMLCCwACNCsgsKA0VYIRsjIVkqIS2wDSyxAgJFsGRhRC2wDiywAWAgILAMQ0qwAFBYILAMI0JZsA1DSrAAUlggsA0jQlktsA8sILAQYmawAWMguAQAY4ojYbAOQ2AgimAgsA4jQiMtsBAsS1RYsQRkRFkksA1lI3gtsBEsS1FYS1NYsQRkRFkbIVkksBNlI3gtsBIssQAPQ1VYsQ8PQ7ABYUKwDytZsABDsAIlQrEMAiVCsQ0CJUKwARYjILADJVBYsQEAQ2CwBCVCioogiiNhsA4qISOwAWEgiiNhsA4qIRuxAQBDYLACJUKwAiVhsA4qIVmwDENHsA1DR2CwAmIgsABQWLBAYFlmsAFjILALQ2O4BABiILAAUFiwQGBZZrABY2CxAAATI0SwAUOwAD6yAQEBQ2BCLbATLACxAAJFVFiwDyNCIEWwCyNCsAojsABgQiBgsAFhtRAQAQAOAEJCimCxEgYrsHIrGyJZLbAULLEAEystsBUssQETKy2wFiyxAhMrLbAXLLEDEystsBgssQQTKy2wGSyxBRMrLbAaLLEGEystsBsssQcTKy2wHCyxCBMrLbAdLLEJEystsB4sALANK7EAAkVUWLAPI0IgRbALI0KwCiOwAGBCIGCwAWG1EBABAA4AQkKKYLESBiuwcisbIlktsB8ssQAeKy2wICyxAR4rLbAhLLECHistsCIssQMeKy2wIyyxBB4rLbAkLLEFHistsCUssQYeKy2wJiyxBx4rLbAnLLEIHistsCgssQkeKy2wKSwgPLABYC2wKiwgYLAQYCBDI7ABYEOwAiVhsAFgsCkqIS2wKyywKiuwKiotsCwsICBHICCwC0NjuAQAYiCwAFBYsEBgWWawAWNgI2E4IyCKVVggRyAgsAtDY7gEAGIgsABQWLBAYFlmsAFjYCNhOBshWS2wLSwAsQACRVRYsAEWsCwqsAEVMBsiWS2wLiwAsA0rsQACRVRYsAEWsCwqsAEVMBsiWS2wLywgNbABYC2wMCwAsAFFY7gEAGIgsABQWLBAYFlmsAFjsAErsAtDY7gEAGIgsABQWLBAYFlmsAFjsAErsAAWtAAAAAAARD4jOLEvARUqLbAxLCA8IEcgsAtDY7gEAGIgsABQWLBAYFlmsAFjYLAAQ2E4LbAyLC4XPC2wMywgPCBHILALQ2O4BABiILAAUFiwQGBZZrABY2CwAENhsAFDYzgtsDQssQIAFiUgLiBHsAAjQrACJUmKikcjRyNhIFhiGyFZsAEjQrIzAQEVFCotsDUssAAWsAQlsAQlRyNHI2GwCUMrZYouIyAgPIo4LbA2LLAAFrAEJbAEJSAuRyNHI2EgsAQjQrAJQysgsGBQWCCwQFFYswIgAyAbswImAxpZQkIjILAIQyCKI0cjRyNhI0ZgsARDsAJiILAAUFiwQGBZZrABY2AgsAErIIqKYSCwAkNgZCOwA0NhZFBYsAJDYRuwA0NgWbADJbACYiCwAFBYsEBgWWawAWNhIyAgsAQmI0ZhOBsjsAhDRrACJbAIQ0cjRyNhYCCwBEOwAmIgsABQWLBAYFlmsAFjYCMgsAErI7AEQ2CwASuwBSVhsAUlsAJiILAAUFiwQGBZZrABY7AEJmEgsAQlYGQjsAMlYGRQWCEbIyFZIyAgsAQmI0ZhOFktsDcssAAWICAgsAUmIC5HI0cjYSM8OC2wOCywABYgsAgjQiAgIEYjR7ABKyNhOC2wOSywABawAyWwAiVHI0cjYbAAVFguIDwjIRuwAiWwAiVHI0cjYSCwBSWwBCVHI0cjYbAGJbAFJUmwAiVhuQgACABjYyMgWGIbIVljuAQAYiCwAFBYsEBgWWawAWNgIy4jICA8ijgjIVktsDossAAWILAIQyAuRyNHI2EgYLAgYGawAmIgsABQWLBAYFlmsAFjIyAgPIo4LbA7LCMgLkawAiVGUlggPFkusSsBFCstsDwsIyAuRrACJUZQWCA8WS6xKwEUKy2wPSwjIC5GsAIlRlJYIDxZIyAuRrACJUZQWCA8WS6xKwEUKy2wPiywNSsjIC5GsAIlRlJYIDxZLrErARQrLbA/LLA2K4ogIDywBCNCijgjIC5GsAIlRlJYIDxZLrErARQrsARDLrArKy2wQCywABawBCWwBCYgLkcjRyNhsAlDKyMgPCAuIzixKwEUKy2wQSyxCAQlQrAAFrAEJbAEJSAuRyNHI2EgsAQjQrAJQysgsGBQWCCwQFFYswIgAyAbswImAxpZQkIjIEewBEOwAmIgsABQWLBAYFlmsAFjYCCwASsgiophILACQ2BkI7ADQ2FkUFiwAkNhG7ADQ2BZsAMlsAJiILAAUFiwQGBZZrABY2GwAiVGYTgjIDwjOBshICBGI0ewASsjYTghWbErARQrLbBCLLA1Ky6xKwEUKy2wQyywNishIyAgPLAEI0IjOLErARQrsARDLrArKy2wRCywABUgR7AAI0KyAAEBFRQTLrAxKi2wRSywABUgR7AAI0KyAAEBFRQTLrAxKi2wRiyxAAEUE7AyKi2wRyywNCotsEgssAAWRSMgLiBGiiNhOLErARQrLbBJLLAII0KwSCstsEossgAAQSstsEsssgABQSstsEwssgEAQSstsE0ssgEBQSstsE4ssgAAQistsE8ssgABQistsFAssgEAQistsFEssgEBQistsFIssgAAPistsFMssgABPistsFQssgEAPistsFUssgEBPistsFYssgAAQCstsFcssgABQCstsFgssgEAQCstsFkssgEBQCstsFossgAAQystsFsssgABQystsFwssgEAQystsF0ssgEBQystsF4ssgAAPystsF8ssgABPystsGAssgEAPystsGEssgEBPystsGIssDcrLrErARQrLbBjLLA3K7A7Ky2wZCywNyuwPCstsGUssAAWsDcrsD0rLbBmLLA4Ky6xKwEUKy2wZyywOCuwOystsGgssDgrsDwrLbBpLLA4K7A9Ky2waiywOSsusSsBFCstsGsssDkrsDsrLbBsLLA5K7A8Ky2wbSywOSuwPSstsG4ssDorLrErARQrLbBvLLA6K7A7Ky2wcCywOiuwPCstsHEssDorsD0rLbByLLMJBAIDRVghGyMhWUIrsAhlsAMkUHiwARUwLQBLuADIUlixAQGOWbABuQgACABjcLEABUKxAAAqsQAFQrEACCqxAAVCsQAIKrEABUK5AAAACSqxAAVCuQAAAAkqsQMARLEkAYhRWLBAiFixA2REsSYBiFFYugiAAAEEQIhjVFixAwBEWVlZWbEADCq4Af+FsASNsQIARAA=') format('truetype');
+	}
+	/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+	/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+		@font-face {
+			font-family: 'fontello-contactform-icons';
+			src: url('/libs/fonts/fontello-contactform-icons.svg#fontello-contactform-icons') format('svg');
+		}
+	}
+
+	.ShopExpressRightForm {
+		background: rgba(255, 255, 255, 0.9);
+		position: fixed;
+		display: table;
+		top:0;
+		right: -340px;
+		width: 340px;
+		height: 100%;		
+		z-index: 999999;
+	}
+	.ShopExpressRightForm-middle
+	{
+		display: table-cell;
+		vertical-align: middle;
+	}
+	.ShopExpressRightForm-inner
+	{
+	    margin-left: auto;
+	    margin-right: auto;
+	    padding: 0 10%;
+	}
+	.serf-arrow {
+	    height: 100%;
+	    width: 13px;
+	    vertical-align: middle;
+	    top: 0;
+	    left: 2px;
+	    z-index: 100002;
+	    cursor: pointer;
+	    opacity: .4;
+	    transition: all .2s cubic-bezier(.19,1,.22,1);
+	    -moz-user-select: none;
+	    -khtml-user-select: none;
+	    -webkit-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	}
+	.serf-arrow, .serf-body .serf-powered-by {
+	    -webkit-transition: all .2s cubic-bezier(.19,1,.22,1);
+	    -moz-transition: all .2s cubic-bezier(.19,1,.22,1);
+	    -o-transition: all .2s cubic-bezier(.19,1,.22,1);
+	    position: absolute;
+	}
+	.serf-arrow .serf-arrow-wrapper {
+	    height: 44px;
+	    width: 10px;
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    margin: auto;
+	}
+	.serf-arrow .serf-arrow-wrapper .serf-arrow-part {
+	    height: 22px;
+	    left: 0;
+	    width: 10px;
+	    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAWCAYAAADjGu3TAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarY6xSsNQFEDPi6LiUCsEcXB4kygotupgxqQtRRCs1SHJ1qShSmkSXl7VfoSjWwcXd7/AyVFwUPwC/0Bx6uAQIYODCJ7p3MPlcsGo2HWnYZRhEGvVbjrS9Xw5+8QMUwDQCbPUbrUOAOIkjvjB5ysC4HnTrjsN/sZ8mCoNTIDtbpSFICpA/0KnGsQYMIN+qkHcAaY6addAPAClXu4vQCnI/Q0oKdfzQXwAZs/1fDDmADPIfQUwdXSpAWpJOlJnvVMtq5ZlSbubBJE8HmU6GmRyPw4TlSaqo6MukP8HwGK+2G46cq1qWXvr/DOu58vc3o8QgFh6LFpBOFTn3yqMnd/n4sZ4GQ5vYXpStN0ruNmAheuirVahvAX34y/Axk/96FpPYgAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAUggAARVYAAA6lwAAF2/XWh+QAAAAO0lEQVR42mL8//8/Ay7AxsDAMJGBgeEdFE+EijFMYGBg+I+GOxkYGBjeYpF4ywhlYAAmXBaPSgwuCcAAgTwSFm3fVCIAAAAASUVORK5CYII=) bottom center no-repeat;
+	    -moz-transform: rotate(-10deg);
+	    -ms-transform: rotate(-10deg);
+	    -webkit-transform: rotate(-10deg);
+	    -o-transform: rotate(-10deg);
+	    transform: rotate(-10deg);
+	    -webkit-transition: all .2s cubic-bezier(.19,1,.22,1);
+	    -moz-transition: all .2s cubic-bezier(.19,1,.22,1);
+	    -o-transition: all .2s cubic-bezier(.19,1,.22,1);
+	    transition: all .2s cubic-bezier(.19,1,.22,1);
+	}
+	.serf-arrow .serf-arrow-wrapper .serf-arrow-part.serf-bottom {
+	    position: absolute;
+	    top: 19px;
+	    left: 0;
+	    -moz-transform: rotate(190deg);
+	    -ms-transform: rotate(190deg);
+	    -webkit-transform: rotate(190deg);
+	    -o-transform: rotate(190deg);
+	    transform: rotate(190deg);
+	}
+	.serf-arrow:hover .serf-arrow-wrapper .serf-arrow-part.serf-bottom {
+	    -moz-transform: rotate(180deg);
+	    -ms-transform: rotate(180deg);
+	    -webkit-transform: rotate(180deg);
+	    -o-transform: rotate(180deg);
+	    transform: rotate(180deg);
+	}
+	.serf-arrow:hover .serf-arrow-wrapper .serf-arrow-part {
+	    -moz-transform: rotate(0deg);
+	    -ms-transform: rotate(0deg);
+	    -webkit-transform: rotate(0deg);
+	    -o-transform: rotate(0deg);
+	    transform: rotate(0deg);
+	}
+	.serf-widget
+	{
+		position: absolute;
+		bottom: 30px;
+		right: 90px;
+		transform-origin: 50% 50% 0;
+		opacity: 0.9;
+	    display: block;
+		z-index: 20000;
+		speak: none!important;
+		font-style: normal!important;
+		font-weight: 400!important;
+		font-variant: normal!important;
+		text-transform: none!important;
+		line-height: 1!important;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	.serf-widget:hover
+	{
+		opacity: 0.95;
+	}
+	.serf-widget .serf-widget-bg
+	{
+		background: #00aff2;
+	    height: 90px;
+	    width: 90px;
+	    border-radius: 56px!important;
+	    -webkit-border-radius: 56px!important;
+	    -moz-border-radius: 56px!important;
+	    
+	    font-size: 36px;
+	    
+	    text-align: center;
+	    line-height: 90px;
+		
+		cursor: pointer;
+	}
+	.serf-widget-bg-blink {
+      animation: blink 2s steps(48, start) infinite;
+      -webkit-animation: blink 2s steps(48, start) infinite;
+    }
+	.serf-widget-bg-heartbit {
+      animation: heartbit 3s steps(48, start) infinite;
+    }
+    .serf-widget:hover .serf-widget-bg-blink
+    {
+		animation: none;
+		-webkit-animation: none;
+	}
+    @keyframes blink {
+      to {
+        opacity: 0.7;
+      }
+    }
+	@keyframes heartbit {
+	    0% { transform:scale(1); }
+	    80% { transform:scale(1); }
+	    85% { transform:scale(1.15) }
+	    90% { transform:scale(1); }
+	    95% { transform:scale(1.15); }
+	    100% { transform:scale(1); }
+	}
+    @-webkit-keyframes blink {
+      to {
+        opacity: 0.7;
+      }
+    }
+	.serf-widget .serf-widget-bg .serf-widget-icon:before
+	{
+		font-family: "fontello-contactform-icons";
+		font-style: normal;
+		font-weight: normal;
+		speak: none;
+		
+		display: inline-block;
+		text-decoration: inherit;
+		width: 1em;
+		margin-right: .2em;
+		text-align: center;
+		/* opacity: .8; */
+
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1em;
+		
+		/* Animation center compensation - margins should be symmetric */
+		/* remove if not needed */
+		margin-left: .2em;
+		
+		/* you can be more comfortable with increased icons size */
+		/* font-size: 120%; */
+		
+		/* Uncomment for 3D effect */
+		/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+		
+		content: '\e802';
+		color : white;
+		/* content: '\e804'; */
+	}
+</style>
+
+<div class="serf-widget ShopExpressRightFormHandler">
+    <div class="serf-widget-bg serf-widget-bg-heartbit">
+	    <div class="serf-widget-icon"></div>
+    </div>
+</div>
+<script>
+$(function() {
+	var offset = $(".serf-widget").offset();
+	var $serf = $(".serf-widget")
+	var bottomPadding = 30;
+	$(window).scroll(function()
+	{
+		$serf.css('bottom', 'auto');
+		$serf.stop().animate({ top: $(window).scrollTop() + $(window).height() - $serf.height() - bottomPadding + 'px' });
+	});
+	$('.ShopExpressRightFormHandler').click(function()
+	{
+		$('.ShopExpressRightFormHandler').show();
+		$(this).fadeOut();
+		
+		if($('.ShopExpressRightForm').data('hidden'))
+		{
+			$('.ShopExpressRightForm').animate( { 'right' : '0px'} ).data('hidden', false );
+		}
+		else
+		{
+			$('.ShopExpressRightForm').animate( { 'right' : (-$('.ShopExpressRightForm').width()) + 'px'} ).data('hidden', true );
+		}
+	});
+
+});
+</script>
+<div class="ShopExpressRightForm">
+	<div class="ShopExpressRightForm-middle">
+		<div class="serf-arrow ShopExpressRightFormHandler"><div class="serf-arrow-wrapper"><div class="serf-arrow-part"></div><div class="serf-arrow-part serf-bottom"></div></div></div>
+		<div class="ShopExpressRightForm-inner">
+			<form role="form" method="post" enctype='multipart/form-data' action="" id="ShopExpressRightForm">
+				<p class="h3 text-center">— {$contactform_hello|default:"Напишите письмо, мы с радостью на него ответим."}</p>
+				<div class="alert alert-danger text-center hide"></div>
+				{foreach from=$contactform_fields item=field name=fieldscounter}
+				{if $field.editable eq 'true'}
+
+				{if $field.htmltype eq 'textfield'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="input{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<input class="form-control" type="text" id="{$field.htmltype}{$field.name|capitalize}" name="ContactForm[{$field.name}]" value="{$field.value}" placeholder="{$field.description}" />
+				</div>
+				{/if}
+				{if $field.htmltype eq 'files'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="input{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<input class="form-control" type="file" id="{$field.htmltype}{$field.name|capitalize}" name="files[{$field.name}]" placeholder="{$field.description}" />
+				</div>
+				{/if}
+				{if $field.htmltype eq 'datefield'}
+				{assign var=datepicker value=1}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="input{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<input class="form-control" type="text" class="datefield" data-date-format="dd.mm.yyyy" data-date="01.01.2014" id="{$field.htmltype}{$field.name|capitalize}" name="ContactForm[{$field.name}]" value="{$field.value}" placeholder="{$field.description}" autocomplete=off />
+				</div>
+				{/if}
+				{if $field.htmltype eq 'textarea'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="textarea{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<textarea class="form-control" class="input-xlarge" id="{$field.htmltype}{$field.name|capitalize}" rows="3" name="ContactForm[{$field.name}]" placeholder="{$field.description}">{$field.value}</textarea>
+				</div>
+				{/if}
+				{if $field.htmltype eq 'adresfield'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="textarea{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<textarea class="form-control" class="input-xlarge" id="{$field.htmltype}{$field.name|capitalize}" rows="3" name="ContactForm[{$field.name}]" placeholder="{$field.description}">{$field.value}</textarea>
+				</div>
+				{/if}
+				{if $field.htmltype eq 'combostore'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="textarea{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<select class="form-control" name="ContactForm[{$field.name}]" id="{$field.htmltype}{$field.name|capitalize}">
+					{foreach from=$GLOBS[$field.name] item=field_item key=field_item_key}
+						<option value="{$field_item_key}">{$field_item}</option>
+					{/foreach}
+					</select>
+					{if $field.description}<span class="help-block">{$field.description}</span>{/if}
+					</div>
+				</div>
+				{/if}
+				{if $field.htmltype eq 'delivery'}
+				<div class="form-group {if $field.error}has-error{/if}">
+					<label class="control-label" for="textarea{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
+					<span class="help-inline">Поле этого типа можно использовать только в корзине.</span>
+				</div>
+				{/if}
+				{/if}
+				{/foreach}
+			  	<div class="form-group text-center">
+				  	<input type="hidden" name="antispam" value="" />
+				  	<input type="hidden" name="from" value="{$contactform_from}" />
+				    <button type="submit" class="btn-submit btn-lg">{$contactform_button|default:'Отправить форму'}</button>
+			  	</div>
+			</form>
+			{if $datepicker}<link rel="stylesheet" type="text/css" href="/media0/css/datepicker.css" media="screen" /><script type="text/javascript" src="/media0/js/bootstrap-datepicker.js"></script>{/if}
+			<script>
+			$(document).ready(function()
+			{
+				$("input[name*=antispam]").val('{$GLOBS.USER_ANTISPAM_KEY}');
+				{if $datepicker} $('.datefield').datepicker(); {/if}
+				$('#ShopExpressRightForm').on('submit', function()
+				{
+					var Mask = $(this).parent().Mask('white');
+					var $form = $(this);
+					
+					$(this).ajaxSubmit(
+				    {
+						type : 'POST',
+						dataType : 'json',
+						texts : {
+							'spam' : 'Извините, система посчитала Ваше сообщение спамом. Если это не так, пожалуйста, обратитесь по почте <a href="mailto:{$GLOBS.MAIL}">{$GLOBS.MAIL}</a>.',
+							'error' : 'При заполнении были допущены ошибки.',
+							'ok' : "{$contactform_answer|default:'Спасибо,<br /> Ваш запрос отправлен.'}"
+						},
+				    	success : function(response)
+				    	{
+							this.fields_marker(response.data);
+							$form.children('.h3').html(this.texts.ok);
+							$form.children('.form-group').slideUp();
+							Mask.remove();
+				    	},
+				    	error: function(xhr)
+				    	{
+							var response = $.parseJSON(xhr.responseText);
+							this.fields_marker(response.data);
+							$form.children('.alert').html(this.texts.error).show().delay(1000).fadeOut(500);
+							Mask.remove();
+				    	},
+				    	fields_marker(fields)
+				    	{
+							$.each(fields, function(fieldname, fieldcontent)
+							{
+								var field_selector = '#' + fieldcontent.htmltype + fieldname.charAt(0).toUpperCase() + fieldname.slice(1);
+								if(fieldcontent.error == 1)
+								{
+									$(field_selector).closest('.form-group').addClass('has-error');
+								}
+								else
+								{
+									$(field_selector).closest('.form-group').removeClass('has-error');
+								}
+							});
+					    }
+				    });
+				    return false;
+				});
+			});
+			</script>
+		</div>
+	</div>
+</div>
+{/if}

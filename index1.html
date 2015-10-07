@@ -11,11 +11,11 @@
 
 		<div class="container">
 			{include file="$TMPL_FOLDER/mod/Pathline.html"}
+			{if $name}<h1>{$name}</h1>{/if}
 			<div class="content wide">
 				{include file="$TMPL_FOLDER/mod/ShopExpressCountDown.html"}
 				{include file="$TMPL_FOLDER/mod/Anonces.html"}
 				{include file="$TMPL_FOLDER/mod/SlideShow.html"}
-				{if $name}<h1>{$name}</h1>{/if}
 				{if $annotate}<p class="lead">{$annotate}</p>{/if}
 
 				{include file="$TMPL_FOLDER/mod/ObjectsConnected.html"}

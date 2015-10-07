@@ -16,7 +16,7 @@
 	<fieldset>
 		<legend>Готовые наборы</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['settings_sets']}">
-		Набор: <span class="selected">изменить</span>
+		Набор: <span class="selected"></span>
 		<ul id="css_settings_sets" class="settings_sets">
 			{foreach from=$GLOBS.css_settings_sets item=css_settings key=css_settings_name}
 			<li><a href="#-&all=clean{foreach from=$css_settings item=item key=key}&{$key}={$item}{/foreach}" rel="settings_sets" class="{$css_settings_name}">{$css_settings_name}</a></li>
@@ -27,13 +27,13 @@
 	<fieldset>
 		<legend>Фон сайта</legend>
 		<div class="dropdown hidden" data-value="{$GLOBS.css_settings['common-site-lib']}">
-		Библиотека: <span class="selected">изменить</span>
+		Библиотека: <span class="selected"></span>
 		<ul>
 			<li><a href="#bootstrap" rel="common-site-lib">bootstrap</a></li>
 		</ul>
 		</div>
 		<div class="dropdown hidden" data-value="{$GLOBS.css_settings['common-site-style']}">
-		Стиль сайта: <span class="selected">изменить</span>
+		Стиль сайта: <span class="selected"></span>
 		<ul>
 			<li><a href="#amelia" rel="common-site-style">Amelia</a></li>
 			<li><a href="#cyborg" rel="common-site-style">Cyborg</a></li>
@@ -46,7 +46,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['body-background']}">
-		Фон сайта: <span class="selected">изменить</span>
+		Фон сайта: <span class="selected"></span>
 		<ul class="body-background">
 			<li><a href="#butterflies" rel="body-background" title="butterflies" class="butterflies">butterflies</a></li>
 			<li><a href="#ribbon" rel="body-background" title="ribbon" class="ribbon">ribbon</a></li>
@@ -84,21 +84,21 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['body-background-attachment']}">
-			Фиксация фона: <span class="selected">изменить</span>
+			Фиксация фона: <span class="selected"></span>
 			<ul class="body-background-attachment">
 				<li><a href="#fixed" rel="body-background-attachment">Зафиксирован</a></li>
 				<li><a href="#scroll" rel="body-background-attachment">Прокручивается</a></li>
 			</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['common-wrapper-padding']}">
-		Подложка: <span class="selected">изменить</span>
+		Подложка: <span class="selected"></span>
 		<ul>
 			<li><a href="#first" rel="common-wrapper-padding">First</a></li>
 			<li><a href="#origin" rel="common-wrapper-padding">Origin</a></li>
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['common-wrapper-bg']}">
-		Фон подложки: <span class="selected">изменить</span>
+		Фон подложки: <span class="selected"></span>
 		<ul>
 			<li><a href="#white-50" rel="common-wrapper-bg">Белая 50%</a></li>
 			<li><a href="#white" rel="common-wrapper-bg">Белая</a></li>
@@ -107,7 +107,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['common-wrapper-shadow']}">
-		Тень подложки: <span class="selected">изменить</span>
+		Тень подложки: <span class="selected"></span>
 		<ul>
 			<li><a href="#10" rel="common-wrapper-shadow">10%</a></li>
 			<li><a href="#30" rel="common-wrapper-shadow">30%</a></li>
@@ -117,7 +117,7 @@
 		</div>
 
 		<div class="dropdown" data-value="{$GLOBS.css_settings['common-wrapper-radius']}">
-		Скругление подложки: <span class="selected">изменить</span>
+		Скругление подложки: <span class="selected"></span>
 		<ul>
 			<li><a href="#5px" rel="common-wrapper-radius">5px</a></li>
 			<li><a href="#10px" rel="common-wrapper-radius">10px</a></li>
@@ -130,7 +130,7 @@
 	<fieldset>
 		<legend>Текст сайта</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['common-text-color']}">
-		Цвет текста: <span class="selected">изменить</span>
+		Цвет текста: <span class="selected"></span>
 		<ul>
 			<li><a href="#light-gray" rel="common-text-color">Светло-серый</a></li>
 			<li><a href="#gray" rel="common-text-color">Темно-серый</a></li>
@@ -139,7 +139,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['common-text-font']}">
-		Шрифт: <span class="selected">изменить</span>
+		Шрифт: <span class="selected"></span>
 		<ul>
 			<li><a href="#Arial" rel="common-text-font">Arial</a></li>
 			<li><a href="#BadScript" rel="common-text-font">Bad Script</a></li>
@@ -177,7 +177,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['common-text-fontsize']}">
-		Размер шрифта: <span class="selected">изменить</span>
+		Размер шрифта: <span class="selected"></span>
 		<ul>
 			<li><a href="#12px" rel="common-text-fontsize">12px</a></li>
 			<li><a href="#13px" rel="common-text-fontsize">13px</a></li>
@@ -187,7 +187,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['common-href-color']}">
-		Цвет ссылок: <span class="selected">изменить</span>
+		Цвет ссылок: <span class="selected"></span>
 		<ul class="common-href-color">
 			<li><a href="#origin" class="origin" rel="common-href-color">Origin</a></li>
 			<li><a href="#cerulean" class="cerulean" rel="common-href-color">Cerulean</a></li>
@@ -209,7 +209,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['common-text-headers']}">
-		Заголовки: <span class="selected">изменить</span>
+		Заголовки: <span class="selected"></span>
 		<ul>
 			<li><a href="#first" rel="common-text-headers">First</a></li>
 			<li><a href="#origin" rel="common-text-headers">Origin</a></li>
@@ -230,7 +230,7 @@
 		<fieldset>
 		<legend>Форма поиска</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-search-style']}">
-		Стиль: <span class="selected">изменить</span>
+		Стиль: <span class="selected"></span>
 		<ul>
 			<li><a href="#red-angle" rel="nav-topbar-search-style">Red Angle</a></li>
 			<li><a href="#black" rel="nav-topbar-search-style">Round</a></li>
@@ -239,7 +239,7 @@
 		
 
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-search']}">
-		Расположение: <span class="selected">изменить</span>
+		Расположение: <span class="selected"></span>
 		<ul>
 			<li><a href="#left" rel="nav-topbar-search-position">Слева</a></li>
 			<li><a href="#right" rel="nav-topbar-search-position">Справа</a></li>
@@ -252,7 +252,7 @@
 	<fieldset>
 		<legend>Верхнее меню</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-style']}">
-		Расположение: <span class="selected">изменить</span>
+		Расположение: <span class="selected"></span>
 		<ul>
 			<li><a href="#center" rel="nav-topbar-position">Центр</a></li>
 			<li><a href="#left" rel="nav-topbar-position">Слева</a></li>
@@ -260,7 +260,7 @@
 		</ul>
 		</div>	
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-bg']}">
-		Фон: <span class="selected">изменить</span>
+		Фон: <span class="selected"></span>
 		<ul>
 			<li><a href="#white" rel="nav-topbar-bg">Белый</a></li>
 			<li><a href="#black" rel="nav-topbar-bg">Черный</a></li>
@@ -270,7 +270,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-bg-2']}">
-		Фон 100%: <span class="selected">изменить</span>
+		Фон 100%: <span class="selected"></span>
 		<ul>
 			<li><a href="#white" rel="nav-topbar-bg-2">Белый</a></li>
 			<li><a href="#black" rel="nav-topbar-bg-2">Черный</a></li>
@@ -279,7 +279,7 @@
 		</div>
 
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-height']}">
-		Высота: <span class="selected">изменить</span>
+		Высота: <span class="selected"></span>
 		<ul>
 			<li><a href="#50px" rel="nav-topbar-height">50px</a></li>
 			<li><a href="#40px" rel="nav-topbar-height">40px</a></li>
@@ -287,14 +287,14 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-item-bg']}">
-		Фон пунктов: <span class="selected">изменить</span>
+		Фон пунктов: <span class="selected"></span>
 		<ul>
 			<li><a href="#white" rel="nav-topbar-item-bg">Белый</a></li>
 			<li><a href="#black" rel="nav-topbar-item-bg">Черный</a></li>
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-item-radius']}">
-		Скругление пунктов: <span class="selected">изменить</span>
+		Скругление пунктов: <span class="selected"></span>
 		<ul>
 			<li><a href="#4px" rel="nav-topbar-item-radius">4px</a></li>
 			<li><a href="#6px" rel="nav-topbar-item-radius">6px</a></li>
@@ -307,7 +307,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-item-margin']}">
-		Отступ пунктов: <span class="selected">изменить</span>
+		Отступ пунктов: <span class="selected"></span>
 		<ul>
 			<li><a href="#2px" rel="nav-topbar-item-margin">2px</a></li>
 			<li><a href="#3px" rel="nav-topbar-item-margin">3px</a></li>
@@ -318,7 +318,7 @@
 		</div>
 
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-transform']}">
-		Написание: <span class="selected">изменить</span>
+		Написание: <span class="selected"></span>
 		<ul>
 			<li><a href="#Lowercase" rel="nav-topbar-transform">маленькими</a></li>
 			<li><a href="#Capitalize" rel="nav-topbar-transform">Прописью</a></li>
@@ -326,14 +326,14 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-color']}">
-		Цвет пунктов: <span class="selected">изменить</span>
+		Цвет пунктов: <span class="selected"></span>
 		<ul>
 			<li><a href="#white" rel="nav-topbar-color">Белый</a></li>
 			<li><a href="#black" rel="nav-topbar-color">Черный</a></li>
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-font']}">
-		Шрифт пунктов: <span class="selected">изменить</span>
+		Шрифт пунктов: <span class="selected"></span>
 		<ul>
 			<li><a href="#Arial" rel="nav-topbar-font">Arial</a></li>
 			<li><a href="#BadScript" rel="nav-topbar-font">Bad Script</a></li>
@@ -369,7 +369,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-fontsize']}">
-		Размер шрифта: <span class="selected">изменить</span>
+		Размер шрифта: <span class="selected"></span>
 		<ul>
 			<li><a href="#0-6em" rel="nav-topbar-fontsize">60%</a></li>
 			<li><a href="#0-8em" rel="nav-topbar-fontsize">80%</a></li>
@@ -378,7 +378,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-hover']}">
-		При наведении: <span class="selected">изменить</span>
+		При наведении: <span class="selected"></span>
 		<ul class="nav-topbar-hover">
 			<li><a href="#first" rel="nav-topbar-hover" class="first">first</a></li>
 			<li><a href="#origin" rel="nav-topbar-hover" class="origin">origin</a></li>
@@ -387,7 +387,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-topbar-border']}">
-		Граница пунктов: <span class="selected">изменить</span>
+		Граница пунктов: <span class="selected"></span>
 		<ul>
 			<li><a href="#slate" rel="nav-topbar-border">Двойная</a></li>
 			<li><a href="#min" rel="nav-topbar-border">min</a></li>
@@ -397,7 +397,7 @@
 	<fieldset>
 		<legend>Шапка</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['header-style']}">
-		Общий стиль: <span class="selected">изменить</span>
+		Общий стиль: <span class="selected"></span>
 		<ul>
 			<li><a href="#v1" rel="header-style">v1</a></li>
 			<li><a href="#v2" rel="header-style">v2</a></li>
@@ -407,7 +407,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['header-colors']}">
-		Цветовая схема: <span class="selected">изменить</span>
+		Цветовая схема: <span class="selected"></span>
 		<ul>
 			<li><a href="#first" rel="header-colors">first</a></li>
 			<li><a href="#origin" rel="header-colors">origin</a></li>
@@ -422,14 +422,14 @@
 		<legend>Основное меню</legend>
 		{*
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-style']}">
-		Набор: <span class="selected">изменить</span>
+		Набор: <span class="selected"></span>
 		<ul>
 			<li><a href="#amelia&nav-navbar-color=white&nav-navbar-bg=amelia&nav-navbar-active=amelia&nav-navbar-hover=amelia" rel="nav-navbar-style">amelia</a></li>
 		</ul>
 		</div>
 		*}
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-font']}">
-		Шрифт: <span class="selected">изменить</span>
+		Шрифт: <span class="selected"></span>
 		<ul>
 			<li><a href="#Arial" rel="nav-navbar-font">Arial</a></li>
 			<li><a href="#BadScript" rel="nav-navbar-font">Bad Script</a></li>
@@ -466,7 +466,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-color']}">
-		Цвет пунктов: <span class="selected">изменить</span>
+		Цвет пунктов: <span class="selected"></span>
 		<ul class="nav-navbar-color">
 			<li><a href="#white" rel="nav-navbar-color" class="white" title="Белый"></a></li>
 			<li><a href="#yellow" rel="nav-navbar-color" class="yellow" title="Желтый"></a></li>
@@ -476,7 +476,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-border']}">
-		Разделитель пунктов меню: <span class="selected">изменить</span>
+		Разделитель пунктов меню: <span class="selected"></span>
 		<ul>
 			<li><a href="#slate" rel="nav-navbar-border">Двойная</a></li>
 			<li><a href="#first" rel="nav-navbar-border">Одинарная</a></li>
@@ -485,7 +485,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-position']}">
-		Расположение пунктов: <span class="selected">изменить</span>
+		Расположение пунктов: <span class="selected"></span>
 		<ul>
 			<li><a href="#left" rel="nav-navbar-position">Слева</a></li>
 			<li><a href="#right" rel="nav-navbar-position">Справа</a></li>
@@ -494,7 +494,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-bg']}">
-		Цветовая схема: <span class="selected">изменить</span>
+		Цветовая схема: <span class="selected"></span>
 		<ul>
 			<li><a href="#amelia" rel="nav-navbar-bg">amelia</a></li>
 			<li><a href="#origin" rel="nav-navbar-bg">origin</a></li>
@@ -522,7 +522,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-height']}">
-		Высота: <span class="selected">изменить</span>
+		Высота: <span class="selected"></span>
 		<ul>
 			<li><a href="#30px" rel="nav-navbar-height">30px</a></li>
 			<li><a href="#40px" rel="nav-navbar-height">40px</a></li>
@@ -531,7 +531,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-shadow']}">
-		Тень: <span class="selected">изменить</span>
+		Тень: <span class="selected"></span>
 		<ul>
 			<li><a href="#v1" rel="nav-navbar-shadow">Вариант №1</a></li>
 			<li><a href="#v2" rel="nav-navbar-shadow">Вариант №2</a></li>
@@ -540,7 +540,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-radius']}">
-		Скругление меню: <span class="selected">изменить</span>
+		Скругление меню: <span class="selected"></span>
 		<ul>
 			<li><a href="#4px" rel="nav-navbar-radius">4px</a></li>
 			<li><a href="#6px" rel="nav-navbar-radius">6px</a></li>
@@ -556,7 +556,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-hover']}">
-		При наведении: <span class="selected">изменить</span>
+		При наведении: <span class="selected"></span>
 		<ul>
 			<li><a href="#amelia" rel="nav-navbar-hover">amelia</a></li>
 			<li><a href="#origin" rel="nav-navbar-hover">origin</a></li>
@@ -573,7 +573,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-active']}">
-		Текущий пункт меню: <span class="selected">изменить</span>
+		Текущий пункт меню: <span class="selected"></span>
 		<ul>
 			<li><a href="#amelia" rel="nav-navbar-active">amelia</a></li>
 			<li><a href="#origin" rel="nav-navbar-active">origin</a></li>
@@ -589,7 +589,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-transform']}">
-		Написание: <span class="selected">изменить</span>
+		Написание: <span class="selected"></span>
 		<ul>
 			<li><a href="#Lowercase" rel="nav-navbar-transform">маленькими</a></li>
 			<li><a href="#Capitalize" rel="nav-navbar-transform">Прописью</a></li>
@@ -597,7 +597,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['nav-navbar-fontsize']}">
-		Размер шрифта: <span class="selected">изменить</span>
+		Размер шрифта: <span class="selected"></span>
 		<ul>
 			<li><a href="#1-0em" rel="nav-navbar-fontsize">Обычный</a></li>
 			<li><a href="#1-1em" rel="nav-navbar-fontsize">Больше на 10%</a></li>
@@ -616,7 +616,7 @@
 	<fieldset>
 		<legend>Меню каталога</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-location']}">
-		Позиция: <span class="selected">изменить</span>
+		Позиция: <span class="selected"></span>
 		<ul>
 			<li><a href="#left" rel="aside-location">Слева</a></li>
 			<li><a href="#right" rel="aside-location">Справа</a></li>
@@ -625,7 +625,7 @@
 		</div>
 
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-categories-bg']}">
-		Фон: <span class="selected">изменить</span>
+		Фон: <span class="selected"></span>
 		<ul class="aside-categories-bg">
 			<li><a href="#amelia" class="amelia" rel="aside-categories-bg">Amelia</a></li>
 			<li><a href="#origin" class="cerulean" rel="aside-categories-bg">Origin</a></li>
@@ -639,7 +639,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-categories-border']}">
-		Граница: <span class="selected">изменить</span>
+		Граница: <span class="selected"></span>
 		<ul class="aside-categories-border">
 			<li><a href="#top" class="top" rel="aside-categories-border">top</a></li>
 			<li><a href="#left" class="left" rel="aside-categories-border">left</a></li>
@@ -649,7 +649,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-categories-style']}">
-		Стиль: <span class="selected">изменить</span>
+		Стиль: <span class="selected"></span>
 		<ul>
 			<li><a href="#usual" rel="aside-categories-style">usual</a></li>
 			<li><a href="#slick" rel="aside-categories-style">slick</a></li>
@@ -659,7 +659,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-categories-font']}">
-		Шрифт ссылок: <span class="selected">изменить</span>
+		Шрифт ссылок: <span class="selected"></span>
 		<ul>
 			<li><a href="#Arial" rel="aside-categories-font">Arial</a></li>
 			<li><a href="#BadScript" rel="aside-categories-font">Bad Script</a></li>
@@ -696,7 +696,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-categories-color']}">
-		Цвет ссылок: <span class="selected">изменить</span>
+		Цвет ссылок: <span class="selected"></span>
 		<ul>
 			<li><a href="#amelia" rel="aside-categories-color">amelia</a></li>
 			<li><a href="#white" rel="aside-categories-color">white</a></li>
@@ -712,7 +712,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-categories-hover']}">
-		При наведении на ссылку: <span class="selected">изменить</span>
+		При наведении на ссылку: <span class="selected"></span>
 		<ul>
 			<li><a href="#first" rel="aside-categories-hover">first</a></li>
 			<li><a href="#origin" rel="aside-categories-hover">origin</a></li>
@@ -730,7 +730,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-categories-active']}">
-		Текущий пункт меню: <span class="selected">изменить</span>
+		Текущий пункт меню: <span class="selected"></span>
 		<ul>
 			<li><a href="#origin" rel="aside-categories-active">Origin</a></li>
 			<li><a href="#v5" rel="aside-categories-active">Подчеркивание</a></li>
@@ -748,7 +748,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-categories-decor']}">
-		Написание ссылки: <span class="selected">изменить</span>
+		Написание ссылки: <span class="selected"></span>
 		<ul>
 			<li><a href="#Lowercase" rel="aside-categories-decor">маленькими</a></li>
 			<li><a href="#Capitalize" rel="aside-categories-decor">Прописью</a></li>
@@ -756,7 +756,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-categories-bullet']}">
-		bullet'ы ссылок: <span class="selected">изменить</span>
+		bullet'ы ссылок: <span class="selected"></span>
 		<ul>
 			<li><a href="#none" rel="aside-categories-bullet">Нет</a></li>
 			<li><a href="#circle" rel="aside-categories-bullet">Circle</a></li>
@@ -778,7 +778,7 @@
 	<fieldset>
 		<legend>Фильтры</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-filters-bg']}">
-		Цветовая схема: <span class="selected">изменить</span>
+		Цветовая схема: <span class="selected"></span>
 		<ul>
 			<li><a href="#first" rel="aside-filters-bg">first</a></li>
 			<li><a href="#origin" rel="aside-filters-bg">origin</a></li>
@@ -790,7 +790,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-filters-style']}">
-		Отступы: <span class="selected">изменить</span>
+		Отступы: <span class="selected"></span>
 		<ul>
 			<li><a href="#first" rel="aside-filters-style">first</a></li>
 			<li><a href="#origin" rel="aside-filters-style">origin</a></li>
@@ -798,7 +798,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['aside-filters-headers']}">
-		Шрифт: <span class="selected">изменить</span>
+		Шрифт: <span class="selected"></span>
 		<ul>
 			<li><a href="#first" rel="aside-filters-headers">first</a></li>
 			<li><a href="#origin" rel="aside-filters-headers">origin</a></li>
@@ -810,7 +810,7 @@
 	<fieldset>
 		<legend>Навигационная строка</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['breadcrumbs-bg']}">
-		Фон: <span class="selected">изменить</span>
+		Фон: <span class="selected"></span>
 		<ul>
 			<li><a href="#first" rel="breadcrumbs-bg">first</a></li>
 			<li><a href="#surfer" rel="breadcrumbs-bg">surfer</a></li>
@@ -821,7 +821,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['breadcrumbs-text-font']}">
-		Шрифт: <span class="selected">изменить</span>
+		Шрифт: <span class="selected"></span>
 		<ul>
 			<li><a href="#Arial" rel="breadcrumbs-text-font">Arial</a></li>
 			<li><a href="#BadScript" rel="breadcrumbs-text-font">Bad Script</a></li>
@@ -857,7 +857,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['breadcrumbs-radius']}">
-		Скругление: <span class="selected">изменить</span>
+		Скругление: <span class="selected"></span>
 		<ul>
 			<li><a href="#3px" rel="breadcrumbs-radius">3px</a></li>
 			<li><a href="#4px" rel="breadcrumbs-radius">4px</a></li>
@@ -869,7 +869,7 @@
 	<fieldset>
 		<legend>Разделы</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['catalog-sections-col']}">
-		Кол-во на строке: <span class="selected">изменить</span>
+		Кол-во на строке: <span class="selected"></span>
 		<ul>
 			<li><a href="#col-6" rel="catalog-sections-col">по 6 штук</a></li>
 			<li><a href="#col-5" rel="catalog-sections-col">по 5 штук</a></li>
@@ -880,14 +880,14 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['catalog-sections-style']}">
-		Стиль: <span class="selected">изменить</span>
+		Стиль: <span class="selected"></span>
 		<ul>
 			<li><a href="#square" rel="catalog-sections-style">Квадрат</a></li>
 			<li><a href="#circle" rel="catalog-sections-style">Круг</a></li>
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['catalog-sections-caption']}">
-		Названия: <span class="selected">изменить</span>
+		Названия: <span class="selected"></span>
 		<ul>
 			<li><a href="#hide" rel="catalog-sections-caption">Не показывать</a></li>
 			<li><a href="#center" rel="catalog-sections-caption">Показать</a></li>
@@ -899,7 +899,7 @@
 	<fieldset>
 		<legend>Статьи</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['articles-item-col']}">
-		Кол-во на строке: <span class="selected">изменить</span>
+		Кол-во на строке: <span class="selected"></span>
 		<ul>
 			<li><a href="#col-4" rel="articles-item-col">по 4 штуки</a></li>
 			<li><a href="#col-3" rel="articles-item-col">по 3 штуки</a></li>
@@ -911,7 +911,7 @@
 	<fieldset>
 		<legend>Фотогалереи</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['galleries-item-col']}">
-		Кол-во на строке: <span class="selected">изменить</span>
+		Кол-во на строке: <span class="selected"></span>
 		<ul>
 			<li><a href="#col-4" rel="galleries-item-col">по 4 штуки</a></li>
 			<li><a href="#col-3" rel="galleries-item-col">по 3 штуки</a></li>
@@ -923,7 +923,7 @@
 	<fieldset>
 		<legend>Товарный блок</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-col']}">
-		Кол-во на строке: <span class="selected">изменить</span>
+		Кол-во на строке: <span class="selected"></span>
 		<ul>
 			<li><a href="#col-6" rel="product-item-col">по 6 штук</a></li>
 			<li><a href="#col-5" rel="product-item-col">по 5 штук</a></li>
@@ -935,7 +935,7 @@
 		</div>
 
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-description']}">
-		Описание: <span class="selected">изменить</span>
+		Описание: <span class="selected"></span>
 		<ul>
 			<li><a href="#hide" rel="product-item-description">Скрыть</a></li>
 			<li><a href="#bottom" rel="product-item-caption">Абсолют</a></li>
@@ -943,7 +943,7 @@
 		</div>
 		
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-price']}">
-		Цена: <span class="selected">изменить</span>
+		Цена: <span class="selected"></span>
 		<ul>
 			<li><a href="#long" rel="product-item-price">Длинная</a></li>
 			<li><a href="#short" rel="product-item-price">Короткая</a></li>
@@ -951,7 +951,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-h5-size']}">
-		Размер названия: <span class="selected">изменить</span>
+		Размер названия: <span class="selected"></span>
 		<ul>
 			<li><a href="#1-0em" rel="product-item-h5-size">Обычный</a></li>
 			<li><a href="#1-2em" rel="product-item-h5-size">Больше на 20%</a></li>
@@ -960,7 +960,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-h5-height']}">
-		Длина названия: <span class="selected">изменить</span>
+		Длина названия: <span class="selected"></span>
 		<ul>
 			<li><a href="#1-0em" rel="product-item-h5-height">На 1 строку</a></li>
 			<li><a href="#2-0em" rel="product-item-h5-height">На 2 строки</a></li>
@@ -969,7 +969,7 @@
 		</ul>
 		</div>		
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-price-size']}">
-		Размер цены: <span class="selected">изменить</span>
+		Размер цены: <span class="selected"></span>
 		<ul>
 			<li><a href="#1-0em" rel="product-item-price-size">Обычный</a></li>
 			<li><a href="#1-1em" rel="product-item-price-size">Больше на 10%</a></li>
@@ -985,7 +985,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-pos']}">
-		Позиция: <span class="selected">изменить</span>
+		Позиция: <span class="selected"></span>
 		<ul>
 			<li><a href="#pos-1&product-item-col=col-2" rel="product-item-pos">Позиция 1 для 2шт.</a></li>
 			<li><a href="#pos-2&product-item-col=col-1" rel="product-item-pos">Позиция 2 для 1шт.</a></li>
@@ -994,7 +994,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-style']}">
-		Стиль: <span class="selected">изменить</span>
+		Стиль: <span class="selected"></span>
 		<ul>
 			<li><a href="#simple" rel="product-item-style">simple</a></li>
 			<li><a href="#first" rel="product-item-style">first</a></li>
@@ -1013,14 +1013,14 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-bg']}">
-		Фон под блоком товара: <span class="selected">изменить</span>
+		Фон под блоком товара: <span class="selected"></span>
 		<ul>
 			<li><a href="#white" rel="product-item-bg">Белый</a></li>
 			<li><a href="#gradient" rel="product-item-bg">Градиент</a></li>
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-item-shadow']}">
-		Тень: <span class="selected">изменить</span>
+		Тень: <span class="selected"></span>
 		<ul>
 			<li><a href="#v1" rel="product-item-shadow">Вариант №1</a></li>
 			<li><a href="#v2" rel="product-item-shadow">Вариант №2</a></li>
@@ -1028,7 +1028,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['product-badges-style']}">
-		Шильдики: <span class="selected">изменить</span>
+		Шильдики: <span class="selected"></span>
 		<ul>
 			<li><a href="#simple" rel="product-badges-style">Овал №1</a></li>
 			<li><a href="#chami" rel="product-badges-style">Овал №2</a></li>
@@ -1045,7 +1045,7 @@
 	<fieldset>
 		<legend>Подвал</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['footer-style']}">
-		Общий стиль: <span class="selected">изменить</span>
+		Общий стиль: <span class="selected"></span>
 		<ul>
 			<li><a href="#first" rel="footer-style">First</a></li>
 			<li><a href="#origin" rel="footer-style">Origin</a></li>
@@ -1057,7 +1057,7 @@
 	<fieldset>
 		<legend>Пейджинг</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['paging-style']}">
-		Стиль: <span class="selected">изменить</span>
+		Стиль: <span class="selected"></span>
 		<ul>
 			<li><a href="#default" rel="paging-style">Обычный</a></li>
 			<li><a href="#square" rel="paging-style">Квадратный</a></li>
@@ -1066,7 +1066,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['paging-color']}">
-		Цвет: <span class="selected">изменить</span>
+		Цвет: <span class="selected"></span>
 		<ul>
 			<li><a href="#amelia" rel="paging-color">amelia</a></li>
 			<li><a href="#cyborg" rel="paging-color">cyborg</a></li>
@@ -1083,7 +1083,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['paging-hover']}">
-		При наведении: <span class="selected">изменить</span>
+		При наведении: <span class="selected"></span>
 		<ul>
 			<li><a href="#amelia" rel="paging-hover">amelia</a></li>
 			<li><a href="#cyborg" rel="paging-hover">cyborg</a></li>
@@ -1099,7 +1099,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['paging-active']}">
-		Текущая страница: <span class="selected">изменить</span>
+		Текущая страница: <span class="selected"></span>
 		<ul>
 			<li><a href="#amelia" rel="paging-active">amelia</a></li>
 			<li><a href="#cyborg" rel="paging-active">cyborg</a></li>
@@ -1114,13 +1114,13 @@
 	<fieldset>
 		<legend>Кнопки</legend>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['button-style']}">
-		Общий стиль: <span class="selected">изменить</span>
+		Общий стиль: <span class="selected"></span>
 		<ul>
 			<li><a href="#slim" rel="button-style">Узкая</a></li>
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['button-icon']}">
-		Иконка: <span class="selected">изменить</span>
+		Иконка: <span class="selected"></span>
 		<ul>
 			<li><a href="#no-icon" rel="button-icon">Без иконки</a></li>
 			<li><a href="#icon-right" rel="button-icon">Иконка справа</a></li>
@@ -1128,7 +1128,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['button-background']}">
-		Цв. гамма: <span class="selected">изменить</span>
+		Цв. гамма: <span class="selected"></span>
 		<ul class="button-background">
 			<li><a href="#amelia" rel="button-background" class="amelia" title="amelia">amelia</a></li>
 			<li><a href="#bereza" rel="button-background" class="bereza" title="bereza">bereza</a></li>
@@ -1163,7 +1163,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['button-radius']}">
-		Скругление кнопки: <span class="selected">изменить</span>
+		Скругление кнопки: <span class="selected"></span>
 		<ul>
 			<li><a href="#3px" rel="button-radius">3px</a></li>
 			<li><a href="#4px" rel="button-radius">4px</a></li>
@@ -1172,7 +1172,7 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['button-font']}">
-		Шрифт: <span class="selected">изменить</span>
+		Шрифт: <span class="selected"></span>
 		<ul>
 			<li><a href="#Arial" rel="button-font">Arial</a></li>
 			<li><a href="#BadScript" rel="button-font">Bad Script</a></li>
@@ -1208,14 +1208,14 @@
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['button-font-color']}">
-		Цвет текста: <span class="selected">изменить</span>
+		Цвет текста: <span class="selected"></span>
 		<ul>
 			<li><a href="#white" rel="button-font-color">white</a></li>
 			<li><a href="#black" rel="button-font-color">black</a></li>
 		</ul>
 		</div>
 		<div class="dropdown" data-value="{$GLOBS.css_settings['button-font-transform']}">
-		Написание: <span class="selected">изменить</span>
+		Написание: <span class="selected"></span>
 		<ul>
 			<li><a href="#Lowercase" rel="button-font-transform">маленькими</a></li>
 			<li><a href="#Capitalize" rel="button-font-transform">Прописью</a></li>

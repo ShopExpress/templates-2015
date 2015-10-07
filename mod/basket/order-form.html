@@ -147,14 +147,44 @@
 		<div class="row">
 			<div class="col-sm-offset-3 col-md-offset-0 col-md-12 col-sm-9">
 			{if count($GLOBS.merchants)<10}
-				{foreach from=$GLOBS.merchants item=item key=merchant}
-				{if $merchant}{include file="$TMPL_FOLDER/mod/basket/merchants/$merchant.html" type='radio'}{/if}
-				{/foreach}
+				{if $GLOBS.merchants['cash']}{include file="$TMPL_FOLDER/mod/basket/merchants/cash.html" type='radio'}{/if}
+				{if $GLOBS.merchants['invoice']}{include file="$TMPL_FOLDER/mod/basket/merchants/invoice.html" type='radio'}{/if}
+				{if $GLOBS.merchants['kupivkredit']}{include file="$TMPL_FOLDER/mod/basket/merchants/kupivkredit.html" type='radio'}{/if}
+				{if $GLOBS.merchants['liqpay']}{include file="$TMPL_FOLDER/mod/basket/merchants/liqpay.html" type='radio'}{/if}
+				{if $GLOBS.merchants['paypal']}{include file="$TMPL_FOLDER/mod/basket/merchants/paypal.html" type='radio'}{/if}
+				{if $GLOBS.merchants['payu']}{include file="$TMPL_FOLDER/mod/basket/merchants/payu.html" type='radio'}{/if}
+				{if $GLOBS.merchants['points']}{include file="$TMPL_FOLDER/mod/basket/merchants/points.html" type='radio'}{/if}
+				{if $GLOBS.merchants['privat24']}{include file="$TMPL_FOLDER/mod/basket/merchants/privat24.html" type='radio'}{/if}
+				{if $GLOBS.merchants['qiwi']}{include file="$TMPL_FOLDER/mod/basket/merchants/qiwi.html" type='radio'}{/if}
+				{if $GLOBS.merchants['rbkmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/rbkmoney.html" type='radio'}{/if}
+				{if $GLOBS.merchants['robokassa']}{include file="$TMPL_FOLDER/mod/basket/merchants/robokassa.html" type='radio'}{/if}
+				{if $GLOBS.merchants['testmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/testmoney.html" type='radio'}{/if}
+				{if $GLOBS.merchants['walletone']}{include file="$TMPL_FOLDER/mod/basket/merchants/walletone.html" type='radio'}{/if}
+				{if $GLOBS.merchants['webmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/webmoney.html" type='radio'}{/if}
+				{if $GLOBS.merchants['yandexmoney_ur']}{include file="$TMPL_FOLDER/mod/basket/merchants/yandexmoney_ur.html" type='radio'}{/if}
+				{if $GLOBS.merchants['yandexmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/yandexmoney.html" type='radio'}{/if}
+				{if $GLOBS.merchants['zpayment']}{include file="$TMPL_FOLDER/mod/basket/merchants/zpayment.html" type='radio'}{/if}
+				{if $GLOBS.merchants['intellectmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/intellectmoney.html" type='radio'}{/if}
 			{else}
 				<select class="form-control" name="pay_method">
-				{foreach from=$GLOBS.merchants item=item key=merchant}
-				{if $merchant}{include file="$TMPL_FOLDER/mod/basket/merchants/$merchant.html" type='option'}{/if}
-				{/foreach}
+				{if $GLOBS.merchants['cash']}{include file="$TMPL_FOLDER/mod/basket/merchants/cash.html" type='option'}{/if}
+				{if $GLOBS.merchants['intellectmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/intellectmoney.html" type='option'}{/if}
+				{if $GLOBS.merchants['invoice']}{include file="$TMPL_FOLDER/mod/basket/merchants/invoice.html" type='option'}{/if}
+				{if $GLOBS.merchants['kupivkredit']}{include file="$TMPL_FOLDER/mod/basket/merchants/kupivkredit.html" type='option'}{/if}
+				{if $GLOBS.merchants['liqpay']}{include file="$TMPL_FOLDER/mod/basket/merchants/liqpay.html" type='option'}{/if}
+				{if $GLOBS.merchants['paypal']}{include file="$TMPL_FOLDER/mod/basket/merchants/paypal.html" type='option'}{/if}
+				{if $GLOBS.merchants['payu']}{include file="$TMPL_FOLDER/mod/basket/merchants/payu.html" type='option'}{/if}
+				{if $GLOBS.merchants['points']}{include file="$TMPL_FOLDER/mod/basket/merchants/points.html" type='option'}{/if}
+				{if $GLOBS.merchants['privat24']}{include file="$TMPL_FOLDER/mod/basket/merchants/privat24.html" type='option'}{/if}
+				{if $GLOBS.merchants['qiwi']}{include file="$TMPL_FOLDER/mod/basket/merchants/qiwi.html" type='option'}{/if}
+				{if $GLOBS.merchants['rbkmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/rbkmoney.html" type='option'}{/if}
+				{if $GLOBS.merchants['robokassa']}{include file="$TMPL_FOLDER/mod/basket/merchants/robokassa.html" type='option'}{/if}
+				{if $GLOBS.merchants['testmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/testmoney.html" type='option'}{/if}
+				{if $GLOBS.merchants['walletone']}{include file="$TMPL_FOLDER/mod/basket/merchants/walletone.html" type='option'}{/if}
+				{if $GLOBS.merchants['webmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/webmoney.html" type='option'}{/if}
+				{if $GLOBS.merchants['yandexmoney_ur']}{include file="$TMPL_FOLDER/mod/basket/merchants/yandexmoney_ur.html" type='option'}{/if}
+				{if $GLOBS.merchants['yandexmoney']}{include file="$TMPL_FOLDER/mod/basket/merchants/yandexmoney.html" type='option'}{/if}
+				{if $GLOBS.merchants['zpayment']}{include file="$TMPL_FOLDER/mod/basket/merchants/zpayment.html" type='option'}{/if}
 				</select>
 			{/if}
 			</div>

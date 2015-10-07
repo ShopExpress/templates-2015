@@ -4,7 +4,7 @@
 		{if $content.discount.percent}<span class="discount-block">-{$content.discount.percent}%</span>{/if}
 		{if $content.discount.money}<span class="discount-block">-{$content.discount.money|price}</span>{/if}
 		
-		<a href="{$item.vlink}">{if sizeof($content.images)>0}{foreach from=$content.images item="im"}<img data-original="/{image src=$im.path height=$GLOBS.img_height|default:150 folder=$GLOBS.img_height|default:"150" crop=true}" src="/media0/img/loading.gif" alt="{$im.name}" height="150" /><noscript><img src="/{image src=$im.path height=$GLOBS.img_height|default:150 folder=$GLOBS.img_height|default:"150" crop=true}" alt="{$im.name}" height="150" /></noscript>{break}{/foreach}{else}<img src="/media0/img/no-image.png" alt="Нет изображения" />{/if}</a>
+		<a href="{$item.vlink}" title="{$im.name}">{if sizeof($content.images)>0}{foreach from=$content.images item="im"}<img data-original="/{image src=$im.path height=$GLOBS.img_height|default:150 folder=$GLOBS.img_height|default:"150" crop=true}" src="/media0/img/loading.gif" alt="{$im.name}" height="150" /><noscript><img src="/{image src=$im.path height=$GLOBS.img_height|default:150 folder=$GLOBS.img_height|default:"150" crop=true}" alt="{$im.name}" height="150" /></noscript>{break}{/foreach}{else}<img src="/media0/img/no-image.png" alt="Нет изображения" />{/if}</a>
 
 		{*if sizeof($content.images)>1}
 		<ul class="product-thumb-list hidden">
