@@ -1,8 +1,9 @@
-{if $GLOBS.merchants.robokassa.test eq 'true'}
-<form method="post" action="http://test.robokassa.ru/Index.aspx" class="payment-form">
-{else}
-<form method="post" action="https://merchant.roboxchange.com/Index.aspx" class="payment-form">
-{/if}
+
+<form method="post" action="https://auth.robokassa.ru/Merchant/Index.aspx" class="payment-form">
+	{if $GLOBS.merchants.robokassa.test eq 'true'}
+	<input type="hidden" name="IsTest" value="1" />
+	{/if}
+	
  	{if $GLOBS.currency.code neq 'RUR' && $GLOBS.currency.code neq 'RUB'}
  	{assign var=summ value=ceil($summ/$GLOBS.allcurrencies.RUB.course)}
  	{/if}

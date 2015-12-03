@@ -30,6 +30,22 @@
 	<div class="flag social-font-odnoklassniki"><i class="icon-odnoklassniki"></i></div>
 	<div id="ok_group_widget"></div>
 </div>
+<script>
+!function (d, id, did, st) {
+  var js = d.createElement("script");
+  js.src = "https://connect.ok.ru/connect.js";
+  js.onload = js.onreadystatechange = function () {
+  if (!this.readyState || this.readyState == "loaded" || this.readyState == "complete") {
+    if (!this.executed) {
+      this.executed = true;
+      setTimeout(function () {
+        OK.CONNECT.insertGroupWidget(id,did,st);
+      }, 0);
+    }
+  }}
+  d.documentElement.appendChild(js);
+}(document,"ok_group_widget","{$shopexpresssocialtabs_ok}","{ width:400,height:335 }");
+</script>
 {/if}
 {if $shopexpresssocialtabs_map}
 <div class="widget map">
@@ -37,3 +53,18 @@
 	{$shopexpresssocialtabs_map}
 </div>
 {/if}
+{if $ext_shopexpresssocialtabs}
+<script src="/media0/js/jquery.wiwi.js"></script>
+<script>
+!function ($) {
+$(function(){
+{if $shopexpresssocialtabs_twitter}$.wiwis({ selector : '.twitter' });{/if}
+{if $shopexpresssocialtabs_fb}$.wiwis({ selector : '.facebook' });{/if}
+{if $shopexpresssocialtabs_vk}$.wiwis({ selector : '.vk' });{/if}
+{if $shopexpresssocialtabs_map}$.wiwis({ selector : '.map' });{/if}
+{if $shopexpresssocialtabs_ok}$.wiwis({ selector : '.odkl' });{/if}
+})
+}(window.jQuery)
+</script>
+{/if}
+
