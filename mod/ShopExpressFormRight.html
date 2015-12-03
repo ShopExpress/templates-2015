@@ -81,11 +81,10 @@
 			{
 				$("input[name*=antispam]").val('{$GLOBS.USER_ANTISPAM_KEY}');
 				{if $datepicker} $('.datefield').datepicker(); {/if}
-				{if $GLOBS.YACOUNTER}
-				try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('ClickForm'); }
-				catch(e) { console.log('Счетчик Яндекс.Метрика не установлен.'); }
-				{/if}
-				$('#ShopExpressRightForm').ContactForm( { ok : '{$shopexpressformright_answer|default:"Спасибо, в ближайшее время с Вами свяжется наш менеджер."}', color : 'white' });
+				$('#ShopExpressRightFormHandler').click(function(){
+					{if $GLOBS.YACOUNTER}try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('ClickFormRight'); } catch(e) { console.log('Счетчик Яндекс.Метрика не установлен.'); }{/if}
+				});
+				$('#ShopExpressRightForm').ContactForm( { ok : '{$shopexpressformright_answer|default:"Спасибо, в ближайшее время с Вами свяжется наш менеджер."}', color : 'white', callback : function(){ {if $GLOBS.YACOUNTER}try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('SubmitFormRight'); } catch(e) { console.log('Счетчик Яндекс.Метрика не установлен.'); }{/if} } });
 			});
 			</script>
 		</div>
