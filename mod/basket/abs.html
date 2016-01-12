@@ -47,7 +47,7 @@ var discounts = [];
 
 	    {if sizeof($item.params)>0}
 	    <small style="font-size:11px;line-height:10px;">
-	    {foreach from=$item.params key=key item=value}<br />&mdash; {$GLOBS.fieldnames[7][$key]}: {$item.content[$key][$value]['name']} {/foreach}
+	    {foreach from=$item.params key=key item=value}{if $item.content[$key][$value]['name']}<br />&mdash; {$GLOBS.fieldnames[7][$key]}: {$item.content[$key][$value]['name']}{else}<br />&mdash; {$value}{/if}{/foreach}
 	    </small>
 	    {/if}
     </td>

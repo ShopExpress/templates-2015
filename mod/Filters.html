@@ -37,6 +37,12 @@
 					{/if}
 				{/foreach}
 				</p>
+			{else if $directories_filters_type[$filter_name] eq 'empty'}
+				<p class="filters-content">
+				{foreach from=$filter_field item=item}
+					<label><input type="checkbox" value="{$item.value|escape}" name="filter[{$filter_name}][]" {if $item.checked}checked="checked"{/if} /> Есть {$directories_filters_name[$filter_name]|lower}</label>
+				{/foreach}
+				</p>
 			{else if $directories_filters_type[$filter_name] eq 'digit'}
 
 			{assign var="max" value=0} {* первому значению *}

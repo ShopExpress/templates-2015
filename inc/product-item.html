@@ -1,6 +1,6 @@
 <div class="product-item inbasket-item">
 	<div class="product-item-inner">
-		{if $content.product_flags}<span class="productflag-block">{$GLOBS.product_flags[$content.product_flags]}</span>{/if}
+		{if $content.product_flags}<span class="productflag-block productflag-block-{$content.product_flags}">{$GLOBS.product_flags[$content.product_flags]}</span>{/if}
 		{if $content.discount.percent}<span class="discount-block">-{$content.discount.percent}%</span>{/if}
 		{if $content.discount.money}<span class="discount-block">-{$content.discount.money|price}</span>{/if}
 		
@@ -85,17 +85,17 @@
 			
 			{if $ext_bookmarked}
 			{if $bookmarks[$oid]}
-			<li><a class="btn-bookmark active" href="/favorites/?{$oid}&amp;time={$smarty.now}" title="Убрать&nbsp;из избранного" data-toggle="tooltip"><i class="glyphicon glyphicon-heart"></i></a></li>
+			<li><a class="btn-bookmark active" href="/favorites/?{$oid}&amp;time={$smarty.now}" title="Убрать&nbsp;из избранного" rel="nofollow" data-toggle="tooltip"><i class="glyphicon glyphicon-heart"></i></a></li>
 			{else}
-			<li><a class="btn-bookmark" href="/favorites/?{$oid}&amp;time={$smarty.now}" title="Добавить&nbsp;в избранное" data-toggle="tooltip"><i class="glyphicon glyphicon-heart"></i></a></li>
+			<li><a class="btn-bookmark" href="/favorites/?{$oid}&amp;time={$smarty.now}" title="Добавить&nbsp;в избранное" rel="nofollow" data-toggle="tooltip"><i class="glyphicon glyphicon-heart"></i></a></li>
 			{/if}
 			{/if}
 		
 			{if $ext_productscompared}
 			{if $smarty.session.ProductsCompare[$oid]}
-			<li><a class="btn-compare active" href="/compare/?{$oid}&amp;r=1&amp;time={$smarty.now}" title="Убрать&nbsp;из сравнения" data-toggle="tooltip"><i class="glyphicon glyphicon-retweet"></i></a></li>
+			<li><a class="btn-compare active" href="/compare/?{$oid}&amp;r=1&amp;time={$smarty.now}" title="Убрать&nbsp;из сравнения" rel="nofollow" data-toggle="tooltip"><i class="glyphicon glyphicon-retweet"></i></a></li>
 			{else}
-			<li><a class="btn-compare" href="/compare/?{$oid}&amp;r=1&amp;time={$smarty.now}" title="Добавить&nbsp;к сравнению" data-toggle="tooltip"><i class="glyphicon glyphicon-retweet"></i></a></li>
+			<li><a class="btn-compare" href="/compare/?{$oid}&amp;r=1&amp;time={$smarty.now}" title="Добавить&nbsp;к сравнению" rel="nofollow" data-toggle="tooltip"><i class="glyphicon glyphicon-retweet"></i></a></li>
 			{/if}
 			{/if}
 			

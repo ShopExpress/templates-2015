@@ -12,7 +12,7 @@
 			{include file="$TMPL_FOLDER/mod/Pathline.html"}
 			{include file="$TMPL_FOLDER/mod/Anonces.html"}
 			<a name="order-form"></a>
-			<h1 align="center">Номер вашего заказа <a href="/basket/?{$order_id}%7C{$order_hash}" title="Постоянный адрес заказа №{$order_id}" rel="tooltip">{$order_id}</a></h1>
+			<h1 align="center">Ваш заказ №<a href="/basket/?{$order_id}%7C{$order_hash}" title="Постоянный адрес заказа №{$order_id}" rel="tooltip">{$order_id}</a>{* - {$GLOBS.order_status[$order_content.status]|lower|replace:'заказ ':''}*}</h1>
 			{* история смены статусов заказа *}
 			{*foreach from=$order_status_history item=history_status key=history_date name=order_status_history}
 			{if $smarty.foreach.order_status_history.last}Прошло {(($smarty.now-$history_date)/60/60/24)|floor} - {$GLOBS.order_status[$history_status]}{/if}

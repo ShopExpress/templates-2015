@@ -91,9 +91,9 @@
     </span>{$GLOBS.currency.shortname}
 </td>
 <td class="nowrap">
-	<a href="/basket/?action=add&oid={$item.oid}&tmpl=mini&time={$smarty.now}" class="btn-increase controls" data-action="increase" data-product="product{$item.oid}"></a>
-	<a href="/basket/?action=del&oid={$item.oid}&tmpl=mini&time={$smarty.now}" class="btn-decrease controls" data-action="reduce" data-product="product{$item.oid}"></a>
-	<a href="/basket/?action=del&oid={$item.oid}&count={$item.count}&tmpl=mini" class="btn-delete controls" data-action="remove" data-product="product{$item.oid}">Удалить</a>
+	<a href="/basket/?action=add&oid={$item.oid}&tmpl=mini&time={$smarty.now}" class="btn-increase controls" data-action="increase" data-product="product{$item.oid}" rel="nofollow"></a>
+	<a href="/basket/?action=del&oid={$item.oid}&tmpl=mini&time={$smarty.now}" class="btn-decrease controls" data-action="reduce" data-product="product{$item.oid}" rel="nofollow"></a>
+	<a href="/basket/?action=del&oid={$item.oid}&count={$item.count}&tmpl=mini" class="btn-delete controls" data-action="remove" data-product="product{$item.oid}" rel="nofollow">Удалить</a>
 </td>
 </tr>
 {include file="$TMPL_FOLDER/mod/BasketObjectsConnected.html" item_oid=$item.real_oid}

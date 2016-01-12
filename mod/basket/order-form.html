@@ -200,7 +200,7 @@
 		{if $orderwelcome}<span class="help-inline">{$orderwelcome}</span>{/if}
 		<button type="submit" class="btn-submit">Подтвердить заказ</button>
 	</div>
-	<script>$(document).ready(function(){ $("input[name*=antispam]").val('{$antispam}'); });</script>
+	<script>$(document).ready(function(){ $("input[name*=antispam]").val('{$GLOBS.USER_ANTISPAM_KEY}'); });</script>
 </form>
 {if $datepicker}
 <link rel="stylesheet" type="text/css" href="/media0/css/datepicker.css" media="screen" />

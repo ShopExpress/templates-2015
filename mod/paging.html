@@ -1,9 +1,6 @@
 {if $pages>1 || $total>10}
-<table style="width:100%;">
-<tr>
-<td style="text-align:left;">
 {if $pages>1}
-<ul class="pagination">
+<ul class="pagination pull-left">
 {if $page!=0}<li><a href="?{$pagekey}={$page-1}{if $directories_order_pubs}&amp;orderby={$directories_order_pubs}{/if}{if $directories_filters_query_url}&amp;{$directories_filters_query_url}{/if}{if $tags_word}&amp;value={$tags_word}{/if}{if $searchquery}&amp;q={$searchquery}{/if}">&larr;</a></li>{else}<li class="disabled"><a href="#">&larr;</a></li>{/if}
 
 {section name=paging loop=$pages}
@@ -19,10 +16,8 @@
 {if ($page+1)!=$pages}<li><a href="?{$pagekey}={$page+1}{if $directories_order_pubs}&amp;orderby={$directories_order_pubs}{/if}{if $directories_filters_query_url}&amp;{$directories_filters_query_url}{/if}{if $tags_word}&amp;value={$tags_word}{/if}{if $searchquery}&amp;q={$searchquery}{/if}">&rarr;</a></li>{else}<li class="disabled"><a href="#">&rarr;</a></li>{/if}
 </ul>
 {/if}
-</td>
-<td style="text-align:right;">
 <!-- размер страницы и сортировка - расположены справа -->
-<ul class="pagination">
+<ul class="pagination pull-right">
     {if $pages>1 || $total>10}
     <li class="disabled"><span>По</span></li>
     <li class="dropdown">
@@ -53,7 +48,5 @@
 <script type="text/javascript">
 $(function () { $('.dropdown-toggle').dropdown(); });
 </script>
-</td>
-</tr>
-</table>
 {/if}
+<br clear="all" />
