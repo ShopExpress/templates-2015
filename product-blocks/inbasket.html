@@ -1,13 +1,17 @@
-<form class="basket-form inbasket" action="/basket/" method=post role="form">
+<form class="basket-form inbasket" action="/basket/" method="POST" role="form">
+	{*
+	<input class="form-control" name="params[{$oid}][some_field_n1]"  type="text" />
+	<input class="form-control" name="params[{$oid}][some_field_n2]"  type="text" />
+	*}
 	{if sizeof($basketparams_fields)>0}
 	<fieldset>
 		{foreach from=$basketparams_fields item=field key=field_name}
 		{if $field.values|editable_count}
 		<div class="form-group">
-			<label class="control-label" for="selectParams_{$field_name}">
+			<label class="control-label">
 				{$GLOBS.fieldnames[$objinfo.type][$field_name]}
 			</label>
-			<select class="form-control" name="params[{$oid}][{$field_name}]" id="selectParams_{$field_name}">
+			<select class="form-control selectParams_{$field_name}" name="params[{$oid}][{$field_name}]">
 			{foreach from=$field.values item=item key=key}
 			{if $item.editable eq 'true'}
 			<option value="{$key}"
@@ -69,8 +73,10 @@
 	{if $ext_productscompared}
 	<a class="btn-compare {if $smarty.session.ProductsCompare[$oid]}active{/if}" href="/compare/?{$oid}&r=1&time={$smarty.now}" title="{if $smarty.session.ProductsCompare[$oid]}Убрать&nbsp;из сравнения{else}Добавить&nbsp;к сравнению{/if}" rel="tooltip"><i class="glyphicon glyphicon-retweet"></i></a>
 	{/if}
-	
 </form>
+{if $ext_basketextendedfastform}
+{include file="$TMPL_FOLDER/mod/BasketExtendedFastForm.html"}
+{/if}
 {if $ext_socialposting}
 <div class="alert alert-info">
 {include file="$TMPL_FOLDER/mod/ShopExpressSocialPosting.html"}
