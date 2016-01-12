@@ -1,4 +1,5 @@
-<form class="order-form" action="/basket/?action=order#order-form" method="post" role="form">
+<form class="order-form well" action="/basket/?action=order#order-form" method="post" role="form">
+	<p class="h3">{$basketextendedfastform_hello}</p>
 	<div class="input-group"><input type="phone" id="textfieldPhone" name="phone" value="{$GLOBS.userdata[$item.name]}" data-mask="{$basketextendedfastform_mask|default:'+7 (000) 000-0000'}" placeholder="{$basketextendedfastform_placeholder|default:'+7 495 1234567'}" data-mask-reverse="true" class="form-control" required="true" /><span class="input-group-btn"><button type="submit" class="btn-buyoneclick"><span class="glyphicon glyphicon-shopping-cart"></span> {$basketextendedfastform_button|default:'Заказать'}</button></span></div>
 	<input name="antispam" type="hidden" value="{$smarty.now}" />
 	<input name="orderflag" type="hidden" value="1" />
