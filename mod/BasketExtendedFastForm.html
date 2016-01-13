@@ -1,36 +1,46 @@
 <form class="order-form well" action="/basket/?action=order#order-form" method="post" role="form">
-	<p class="h3">{$basketextendedfastform_hello}</p>
-	<div class="input-group"><input type="phone" id="textfieldPhone" name="phone" value="{$GLOBS.userdata[$item.name]}" data-mask="{$basketextendedfastform_mask|default:'+7 (000) 000-0000'}" placeholder="{$basketextendedfastform_placeholder|default:'+7 495 1234567'}" data-mask-reverse="true" class="form-control" required="true" /><span class="input-group-btn"><button type="submit" class="btn-buyoneclick"><span class="glyphicon glyphicon-shopping-cart"></span> {$basketextendedfastform_button|default:'Заказать'}</button></span></div>
+	{if $basketextendedfastform_hello}<p class="h3">{$basketextendedfastform_hello}</p>{/if}
+	<div class="input-group"><input type="phone" name="phone" value="{$GLOBS.userdata[$item.name]}" data-mask="{$basketextendedfastform_mask|default:'+7 (000) 000-0000'}" placeholder="{$basketextendedfastform_placeholder|default:'+7 495 1234567'}" data-mask-reverse="true" class="form-control" required="true" /><span class="input-group-btn"><button type="submit" class="btn-buyoneclick"><span class="glyphicon glyphicon-shopping-cart"></span> {$basketextendedfastform_button|default:'Заказать'}</button></span></div>
 	<input name="antispam" type="hidden" value="{$smarty.now}" />
 	<input name="orderflag" type="hidden" value="1" />
 	<script>
 	$(document).ready(function(){
 		$('.order-form').on('submit', function()
 		{
-			var Mask = $('.order-form').Mask('white');
+			var me = $(this);
+			var Mask = me.Mask('white');
 			//has-error
-			$.ajax({
-				type	: $('.basket-form').attr('method') || 'POST',
-				cache	: false,
-				url		: $('.basket-form').attr('action'),
-				data	: $('.basket-form').serialize(),
-				success: function(html)
-				{
-					$.ajax({
-						type	: $('.order-form').attr('method') || 'POST',
-						cache	: false,
-						url		: $('.order-form').attr('action'),
-						data	: $('.order-form').serialize(),
-						success: function(html)
-						{
-							Mask.remove('<p align=center>{$basketextendedfastform_success|default:'Спасибо за заказ!'}</p>');
-						}
-					});
-				}
-			});
+			var phone = me.find('[name=phone]').val();
+			if( phone.length > 3 )
+			{
+				$.ajax({
+					type	: $('.basket-form').attr('method') || 'POST',
+					cache	: false,
+					url		: $('.basket-form').attr('action'),
+					data	: $('.basket-form').serialize(),
+					success: function(html)
+					{
+						$.ajax({
+							type	: me.attr('method') || 'POST',
+							cache	: false,
+							url		: me.attr('action'),
+							data	: me.serialize(),
+							success: function(html)
+							{
+								Mask.remove('<p align=center>{$basketextendedfastform_success|default:'Спасибо за заказ!'}</p>');
+								//alert("{$basketextendedfastform_success|default:'Спасибо за заказ!'}");
+							}
+						});
+					}
+				});
+			}
+			else
+			{
+				Mask.remove('<p align=center>Укажите верный номер телефона</p>');
+			}
 			return false;
 		});
-		$('#textfieldPhone').inputmask("{$basketextendedfastform_mask|default:'+7 (000) 000-0000'}");
+		$('.order-form [name=phone]').inputmask("{$basketextendedfastform_mask|default:'+7 (000) 000-0000'}");
 		$("input[name*=antispam]").val('{$GLOBS.USER_ANTISPAM_KEY}');
 	});
 	</script>
