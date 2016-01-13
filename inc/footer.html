@@ -8,7 +8,7 @@
 					<p>
 					{if $GLOBS.PHONE}Телефон: {$GLOBS.PHONE}<br />{/if}
 					{if $GLOBS.PHONES}{$GLOBS.PHONES}<br />{/if}
-					{if $ext_shopexpresscallback}<a href="{$shopexpresscallback_url|default:'/contacts/order.html'}?from={$oid}" rel="nofollow" data-toggle="modal" data-target="#feedback-box" class="btn btn-xs"><i class="glyphicon glyphicon-phone"></i> {$shopexpresscallback_text|default:'Заказать обратный звонок'}</a><br />{/if}
+					{if $ext_shopexpresscallback}<button type="button" data-toggle="modal" data-target="#shopexpresscallback-box" class="btn btn-xs" id="ShopExpressCallBackHandler"><i class="glyphicon glyphicon-phone"></i> {$shopexpresscallback_text|default:'Заказать обратный звонок'}</button><br />{/if}
 					{if $GLOBS.MAIL}Электронная почта: <a href="mailto:{$GLOBS.MAIL}">{$GLOBS.MAIL}</a><br />{/if}
 					</p>
 					{if $GLOBS.ADRES|nl2br}<p><b>Адрес:</b> {$GLOBS.ADRES|nl2br}</p>{/if}

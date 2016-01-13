@@ -38,7 +38,7 @@ var discounts = [];
 </thead>
 <tbody>
 {foreach from=$basketdata item=item}
-  <tr id="product{$item.oid}" class="basket-item inbasket-item">
+  <tr id="product{$item.oid}" class="basket-item inbasket-item" data-oid="{$item.real_oid}" data-category="{$item.parent_oid}" data-name="{$item.content.name|escape}" data-brand="{$item.content.vendor|escape}">
     <td>
 	    <a href="{$item.vlink}">{$item.content.name}</a>
 	    <sup class="label label-success {if $basketdiscount || !$item.content.discount}hide{/if}">
