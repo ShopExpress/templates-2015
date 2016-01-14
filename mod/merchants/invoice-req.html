@@ -1,0 +1,148 @@
+<table style="width: 100%;" border="0" cellspacing="0" cellpadding="5">
+    <tbody>
+        <tr>
+            <td>
+                <p align="left">{$GLOBS.merchants.invoice.name}<br>
+                {$GLOBS.merchants.invoice.address}<br>
+                Телефон: {$GLOBS.PHONE}<br>
+                Сайт: http://{$GLOBS.SITE_HOST}<br>
+                <br>
+                <small>Образец заполнения платежного поручения</small></p>
+            </td>
+
+            <td align="right" valign="top"><img src="{$GLOBS.LOGO[0].path}" style="max-height: 100px;"></td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="bordered">
+    <tbody>
+        <tr>
+            <td colspan="4">{$GLOBS.merchants.invoice.bank}</td>
+            <td>БИК</td>
+            <td>{$GLOBS.merchants.invoice.bik}</td>
+        </tr>
+        <tr>
+            <td colspan="4">Банк получателя</td>
+            <td>Сч. No</td>
+            <td>{$GLOBS.merchants.invoice.ks}</td>
+        </tr>
+        <tr>
+            {if $GLOBS.merchants.invoice.kpp}
+            <td>ИНН</td>
+            <td>{$GLOBS.merchants.invoice.inn}</td>
+            <td>КПП</td>
+            <td>{$GLOBS.merchants.invoice.kpp}</td>
+            {else}
+            <td>ИНН</td>
+            <td colspan="3">{$GLOBS.merchants.invoice.inn}</td>
+            {/if}
+            <td rowspan="2" valign="top">Сч. No</td>
+            <td rowspan="2" valign="top">{$GLOBS.merchants.invoice.rs}</td>
+        </tr>
+        <tr>
+            <td colspan="4">{$GLOBS.merchants.invoice.name}<br>
+            <small>Получатель</small></td>
+        </tr>
+    </tbody>
+</table>
+
+<h1 align="center">Счет-договор № {$order_id} от {$order_content.created|date_format:'%d %B %Y'|lower}</h1>
+
+<table class="bordered">
+    <tr>
+        <td valign="top">Поставщик:</td>
+        <td>{$GLOBS.merchants.invoice.name}{if $GLOBS.merchants.invoice.inn}, ИНН {$GLOBS.merchants.invoice.inn}{/if}{if $GLOBS.merchants.invoice.kpp}, КПП {$GLOBS.merchants.invoice.kpp}{/if}{if $GLOBS.merchants.invoice.mfo}, МФО {$GLOBS.merchants.invoice.mfo}{/if}{if $GLOBS.merchants.invoice.address}, Юр. Адрес {$GLOBS.merchants.invoice.address}{/if}{if $GLOBS.merchants.invoice.rs}, Р/сч {$GLOBS.merchants.invoice.rs}{/if}, {$GLOBS.merchants.invoice.bank}</td>
+    </tr>
+    <tr>
+        <td valign="top">Покупатель:</td>
+        <td>{if $order_fields.org_name.value || $GLOBS.userdata.org_name}{$order_fields.org_name.value|default:$GLOBS.userdata.org_name}{else}{$order_content.fio}{/if}{if $order_fields.org_inn.value || $GLOBS.userdata.org_kpp}, ИНН {$order_fields.org_inn.value|default:$GLOBS.userdata.org_inn}{/if}{if $order_fields.org_kpp.value || $GLOBS.userdata.org_kpp}, КПП {$order_fields.org_kpp.value|default:$GLOBS.userdata.org_kpp}{/if}{if $order_fields.org_address.value || $GLOBS.userdata.org_address}, Юр. Адрес {$order_fields.org_address.value|default:$GLOBS.userdata.org_address}{/if}{if $order_fields.org_rs.value || $GLOBS.userdata.org_rs}, Р/сч {$order_fields.org_rs.value|default:$GLOBS.userdata.org_rs}{/if}{if $order_fields.bank_name.value || $GLOBS.userdata.bank_name}, {$order_fields.bank_name.value|default:$GLOBS.userdata.bank_name}{/if}</td>
+    </tr>
+</table>
+<br>
+<br>
+
+<table class="bordered">
+    <tbody>
+        <tr>
+            <td>№</td>
+            <td>Товары (работы, услуги)</td>
+            <td>Кол-во</td>
+            <td>Ед.</td>
+            <td>Цена</td>
+            <td>Сумма</td>
+        </tr>
+		{foreach from=$basketdata item=product name=products}
+        <tr>
+            <td>{$smarty.foreach.products.iteration}</td>
+            <td>{$product.content.articul} {$product.content.name}</td>
+            <td>{$product.count}</td>
+            <td>{numeral number=1 ends=$product.content.units|default:'шт.,шт.,шт.'}</td>
+            <td>{$product.price|discount:$order_content.discount|price:false}</td>
+            <td>{$product.total|discount:$order_content.discount|price:false}</td>
+        </tr>
+        {/foreach}
+        {if $order_content.delivery_price}
+        <tr>
+            <td>{count($basketdata)+1}</td>
+            <td>{$order_content.delivery}</td>
+            <td>1</td>
+            <td>--</td>
+            <td>{$order_content.delivery_price|price:false}</td>
+            <td>{$order_content.delivery_price|price:false}</td>
+        </tr>
+        {/if}
+    </tbody>
+</table>
+<br />
+<br />
+
+<table class="bordered" align="right">
+    <tr>
+        <td>Итого к оплате:</td>
+        <td>{$order_content.summ|price:false}</td>
+    </tr>
+    <tr>
+        <td>В том числе НДС:</td>
+        <td>Без НДС</td>
+    </tr>
+</table>
+<br />
+<br />
+
+<table style="width: 100%; border-bottom: 2px solid black;" border="0" cellspacing="0" cellpadding="5">
+    <tr>
+        <td>Всего к оплате: {$order_content.summ|num2str}</td>
+    </tr>
+</table>
+<br />
+<table border="0" align="right">
+<tbody>
+	<tr>
+		<td align="right">{if $GLOBS.merchants.invoice.kpp}Генеральный директор{else}Индивидуальный предприниматель{/if}</td>
+		<td style="border-bottom: 1px solid black;width: 100px;">&nbsp;</td>
+		<td style="width: 5px;">&nbsp;</td>
+		<td style="border-bottom: 1px solid black;width: 200px;">{$GLOBS.merchants.invoice.gendir}</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td align="right"><small>расшифровка подписи</small></td>
+	</tr>
+	{if $GLOBS.merchants.invoice.glavbuh}
+	<tr>
+		<td align="right">Главный (старший) бухгалтер</td>
+		<td style="border-bottom: 1px solid black;">&nbsp;</td>
+		<td style="width: 5px;">&nbsp;</td>
+		<td style="border-bottom: 1px solid black;">{$GLOBS.merchants.invoice.glavbuh}</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td align="right"><small>расшифровка подписи</small></td>
+	</tr>
+	{/if}
+</tbody>
+</table>

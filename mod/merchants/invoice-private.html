@@ -1,0 +1,537 @@
+<table class="ramka c19" cellspacing="0">
+    <tr>
+        <td class="c4">
+            <table class="c3" cellspacing="0">
+                <tr>
+                    <td class="kassir">Извещение</td>
+                </tr>
+                <tr>
+                    <td class="kassir c2">Кассир</td>
+                </tr>
+            </table>
+        </td>
+
+        <td class="c15">
+            <table cellspacing="0" class="c14">
+                <tr>
+                    <td>
+                        <table width="100%" cellspacing="0">
+                            <tr>
+                                <td class="stext c5"></td>
+
+                                <td class="stext7 c6"><i>Форма № ПД-4</i></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="c2">
+                        <table class="c8" cellspacing="0">
+                            <tr>
+                                <td class="string"><span class="nowr">{$GLOBS.merchants.invoice.name}</span></td>
+
+                                <td class="string nowr" style="width: 1mm;">{if $GLOBS.merchants.invoice.kpp}&nbsp;КПП:&nbsp;{$GLOBS.merchants.invoice.kpp}{/if}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="subscript nowr">(наименование получателя платежа)</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td width="33%" class="floor">
+                                    <table class="cells" cellspacing="0">
+                                        <tr>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[0]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[1]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[2]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[3]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[4]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[5]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[6]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[7]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[8]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[9]}</td>
+                                            {if $GLOBS.merchants.invoice.inn[10]}<td class="cell">{$GLOBS.merchants.invoice.inn[10]}</td>{/if}
+                                            {if $GLOBS.merchants.invoice.inn[11]}<td class="cell">{$GLOBS.merchants.invoice.inn[11]}</td>{/if}
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td width="7%" class="stext7">&nbsp;</td>
+
+                                <td width="60%" class="floor">
+                                    <table class="cells" cellspacing="0">
+                                        <tr>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[0]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[1]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[2]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[3]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[4]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[5]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[6]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[7]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[8]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[9]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[10]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[11]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[12]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[13]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[14]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[15]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[16]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[17]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[18]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[19]}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="subscript nowr">(ИНН получателя платежа)</td>
+
+                                <td class="subscript">&nbsp;</td>
+
+                                <td class="subscript nowr">(номер счета получателя платежа)</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td width="2%" class="stext">в</td>
+
+                                <td width="64%" class="string"><span class="nowr">{$GLOBS.merchants.invoice.bank}</span></td>
+
+                                <td width="7%" class="stext" align="right">БИК&nbsp;</td>
+
+                                <td width="27%" class="floor">
+                                    <table class="cells" cellspacing="0">
+                                        <tr>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[0]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[1]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[2]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[3]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[4]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[5]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[6]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[7]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[8]}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="subscript">&nbsp;</td>
+
+                                <td class="subscript nowr">(наименование банка получателя платежа)</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext7 nowr" width="40%">Номер кор./сч. банка получателя платежа</td>
+
+                                <td width="60%" class="floor">
+                                    <table class="cells" cellspacing="0">
+                                        <tr>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[0]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[1]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[2]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[3]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[4]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[5]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[6]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[7]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[8]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[9]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[10]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[11]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[12]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[13]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[14]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[15]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[16]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[17]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[18]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[19]}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="string" width="55%"><span>Заказ №: {$order_id}</span></td>
+
+                                <td class="stext7" width="5%">&nbsp;</td>
+
+                                <td class="string" width="40%">&nbsp;</td>
+                            </tr>
+
+                            <tr>
+                                <td class="subscript nowr">(наименование платежа)</td>
+
+                                <td class="subscript">&nbsp;</td>
+
+                                <td class="subscript nowr">(номер лицевого счета (код) плательщика)</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext" width="1%">Ф.И.О&nbsp;плательщика&nbsp;</td>
+
+                                <td class="string"><span class="nowr">&nbsp;{$order_content.fio}&nbsp;</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext" width="1%">Адрес&nbsp;плательщика&nbsp;</td>
+
+                                <td class="string"><span class="nowr">{$order_content.address}</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext" width="5%">Сумма&nbsp;платежа&nbsp;</td>
+                                <td class="string" width="45%">{$order_content.summ|num2str}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext" width="5%">Итого&nbsp;</td>
+                                <td class="string" width="8%">{$order_content.summ|price:false}</td>
+                                <td class="stext" width="5%">&nbsp;руб.&nbsp;</td>
+                                <td class="string" width="8%">&nbsp;</td>
+                                <td class="stext" width="20%" align="right">&laquo;{$smarty.now|date_format:'%d'}&raquo;&nbsp; {$smarty.now|date_format:'%B'}&nbsp;</td>
+                                <td class="stext" width="3%">&nbsp;{$smarty.now|date_format:'%Y'}г.</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="stext7" style="text-align: justify">С условиями приема указанной в платежном документе суммы, в т.ч. с суммой взимаемой платы за&nbsp;услуги банка,&nbsp;ознакомлен&nbsp;и&nbsp;согласен.</td>
+                </tr>
+
+                <tr>
+                    <td style="padding-bottom: 0.5mm;">
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext7" width="50%">&nbsp;</td>
+
+                                <td class="stext7" width="1%"><b>Подпись&nbsp;плательщика&nbsp;</b></td>
+
+                                <td class="string" width="40%">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+    <tr>
+        <td style="width: 50mm; height: 80mm; vertical-align: bottom;" class="kassir">Квитанция<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        Кассир</td>
+
+        <td style="width: 130mm; height: 80mm; padding: 0mm 4mm 0mm 3mm; border-left: black 1.5px solid;">
+            <table cellspacing="0" style="width: 123mm; height: 100%;">
+                <tr>
+                    <td style="vertical-align: bottom;">
+                        <table style="width: 100%; height: 8mm;" cellspacing="0">
+                            <tr>
+                                <td class="string"><span class="nowr">{$GLOBS.merchants.invoice.name}</span></td>
+
+                                <td class="string nowr" style="width: 1mm;">{if $GLOBS.merchants.invoice.kpp}&nbsp;КПП:&nbsp;{$GLOBS.merchants.invoice.kpp}{/if}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="subscript nowr">(наименование получателя платежа)</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td width="30%" class="floor">
+                                    <table class="cells" cellspacing="0">
+                                        <tr>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[0]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[1]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[2]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[3]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[4]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[5]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[6]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[7]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[8]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.inn[9]}</td>
+                                            {if $GLOBS.merchants.invoice.inn[10]}<td class="cell">{$GLOBS.merchants.invoice.inn[10]}</td>{/if}
+                                            {if $GLOBS.merchants.invoice.inn[11]}<td class="cell">{$GLOBS.merchants.invoice.inn[11]}</td>{/if}
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td width="10%" class="stext7">&nbsp;</td>
+
+                                <td width="60%" class="floor">
+                                    <table class="cells" cellspacing="0">
+                                        <tr>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[0]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[1]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[2]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[3]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[4]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[5]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[6]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[7]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[8]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[9]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[10]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[11]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[12]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[13]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[14]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[15]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[16]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[17]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[18]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.rs[19]}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="subscript nowr">(ИНН получателя платежа)</td>
+
+                                <td class="subscript">&nbsp;</td>
+
+                                <td class="subscript nowr">(номер счета получателя платежа)</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td width="2%" class="stext">в</td>
+
+                                <td width="64%" class="string"><span class="nowr">{$GLOBS.merchants.invoice.bank}</span></td>
+
+                                <td width="7%" class="stext" align="right">БИК&nbsp;</td>
+
+                                <td width="27%" class="floor">
+                                    <table class="cells" cellspacing="0">
+                                        <tr>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[0]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[1]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[2]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[3]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[4]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[5]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[6]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[7]}</td>
+                                            <td class="cell" style="width: 11%;">{$GLOBS.merchants.invoice.bik[8]}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="subscript">&nbsp;</td>
+
+                                <td class="subscript nowr">(наименование банка получателя платежа)</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext7 nowr" width="40%">Номер кор./сч. банка получателя платежа</td>
+
+                                <td width="60%" class="floor">
+                                    <table class="cells" cellspacing="0">
+                                        <tr>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[0]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[1]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[2]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[3]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[4]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[5]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[6]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[7]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[8]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[9]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[10]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[11]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[12]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[13]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[14]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[15]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[16]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[17]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[18]}</td>
+                                            <td class="cell">{$GLOBS.merchants.invoice.ks[19]}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="string" width="55%"><span>Заказ №: {$order_id}</span></td>
+
+                                <td class="stext7" width="5%">&nbsp;</td>
+
+                                <td class="string" width="40%">&nbsp;</td>
+                            </tr>
+
+                            <tr>
+                                <td class="subscript nowr">(наименование платежа)</td>
+
+                                <td class="subscript">&nbsp;</td>
+
+                                <td class="subscript nowr">(номер лицевого счета (код) плательщика)</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext" width="1%">Ф.И.О&nbsp;плательщика&nbsp;</td>
+
+                                <td class="string"><span class="nowr">&nbsp;{$order_content.fio}&nbsp;</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext" width="1%">Адрес&nbsp;плательщика&nbsp;</td>
+
+                                <td class="string"><span class="nowr">{$order_content.address}</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext" width="5%">Сумма&nbsp;платежа&nbsp;</td>
+                                <td class="string" width="45%">{$order_content.summ|num2str}</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext" width="5%">Итого&nbsp;</td>
+                                <td class="string" width="8%">{$order_content.summ|price:false}</td>
+                                <td class="stext" width="5%">&nbsp;руб.&nbsp;</td>
+                                <td class="string" width="8%">&nbsp;</td>
+                                <td class="stext" width="20%" align="right">&laquo;{$smarty.now|date_format:'%d'}&raquo;&nbsp; {$smarty.now|date_format:'%B'}&nbsp;</td>
+                                <td class="stext" width="3%">&nbsp;{$smarty.now|date_format:'%Y'}г.</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="stext7" style="text-align: justify">С условиями приема указанной в платежном документе суммы, в т.ч. с суммой взимаемой платы за&nbsp;услуги банка,&nbsp;ознакомлен&nbsp;и&nbsp;согласен.</td>
+                </tr>
+
+                <tr>
+                    <td style="padding-bottom: 0.5mm;">
+                        <table cellspacing="0" width="100%">
+                            <tr>
+                                <td class="stext7" width="50%">&nbsp;</td>
+
+                                <td class="stext7" width="1%"><b>Подпись&nbsp;плательщика&nbsp;</b></td>
+
+                                <td class="string" width="40%">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

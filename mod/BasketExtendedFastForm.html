@@ -8,11 +8,16 @@
 		$('.order-form').on('submit', function()
 		{
 			var me = $(this);
+			
+			if(me.data('product') == 'ADDED') return true;
+			if(me.data('product') == 'ADDING'){ me.submit(); return false; }
+			
 			var Mask = me.Mask('white');
 			//has-error
 			var phone = me.find('[name=phone]').val();
 			if( phone.length > 3 )
 			{
+				me.data('product', 'ADDING');
 				$.ajax({
 					type	: $('.basket-form').attr('method') || 'POST',
 					cache	: false,
@@ -20,6 +25,10 @@
 					data	: $('.basket-form').serialize(),
 					success: function(html)
 					{
+						me.data('product', 'ADDED');
+						me.submit();
+						
+						{*
 						$.ajax({
 							type	: me.attr('method') || 'POST',
 							cache	: false,
@@ -31,6 +40,7 @@
 								//alert("{$basketextendedfastform_success|default:'Спасибо за заказ!'}");
 							}
 						});
+						*}
 					}
 				});
 			}

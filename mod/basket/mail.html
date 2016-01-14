@@ -8,8 +8,10 @@
             	<tr>
                 	<td align="center" valign="top" style="border-collapse: collapse;">
                         	<!-- // Begin Template Preheader \\ -->
+							<h1 style="font-family: 'trebuchet ms', geneva; text-align: center;">{$LOGO}</h1>
 							<h1 style="font-family: 'trebuchet ms', geneva;font-size:24px;text-align:left;">{if $hello}{$hello}{else}Номер вашего заказа <u>№{$order_id}</u>{/if}</h1>
 							<p style="font-family: 'trebuchet ms', geneva;font-size:18px;text-align:left;">{if $first_text}{$first_text}{else}Мы всегда рады ответить на ваши вопросы по телефону<b> {$GLOBS.PHONE}</b>.{/if}</p>
+							{include file="$TMPL_FOLDER/mod/subscribes/mod/Menu.html"}
 							{if $Contacts}
 							<table cellpadding="10" cellspacing="0" border="0" width=100% style="background-color: #FAFAFA;border: 0px solid #DDDDDD;">
 							<thead>
@@ -149,7 +151,9 @@
 							*}
 							<tr>
 								<td style="border-collapse: collapse;border: none; font-size:14px;font-family: 'trebuchet ms', geneva;text-align:right;" colspan="7">
-									<p style="font-size:14px;font-family: 'trebuchet ms', geneva;"><a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}">Постоянный адрес заказа</a></p>
+									<p style="font-size:14px;font-family: 'trebuchet ms', geneva;"><a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}">Постоянная ссылка на заказ</a>
+									{if $order_content.pay_method eq 'INVOICE'}<br />{if $order_fields.org_name.value}<a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}&tmpl=invoice-req" target="_blank">Распечатать счет</a>{else}<a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}&tmpl=invoice-private" target="_blank">Распечатать счет</a>{/if}{/if}
+									</p>
 								</td>
 							</tr>
 							</table>
@@ -197,6 +201,7 @@
 								</td>
 								<td style="border-collapse: collapse;border-bottom: 1px solid #DDDDDD;border-right: 1px solid #DDDDDD;font-size:14px;font-family: 'trebuchet ms', geneva;">
 									{$GLOBS.pay_methods[$order_content.pay_method]}
+									{if $order_content.pay_method eq 'INVOICE'}({if $order_fields.org_name.value}<a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}&tmpl=invoice-req" target="_blank">распечатать счет</a>{else}<a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}&tmpl=invoice-private" target="_blank">распечатать счет</a>{/if}){/if}
 								</td>
 							</tr>
 							{/if}
