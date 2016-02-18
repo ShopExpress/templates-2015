@@ -1,7 +1,7 @@
-<head>
+<head itemscope itemtype="http://schema.org/WebSite">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>{if $order_id}Заказ {$order_id}{elseif $title}{$title}{elseif $name}{$name}{elseif $GLOBS.SITENAME}{$GLOBS.SITENAME}{/if}</title>
+<title itemprop='name'>{if $order_id}Заказ {$order_id}{elseif $title}{$title}{elseif $name}{$name}{elseif $GLOBS.SITENAME}{$GLOBS.SITENAME}{/if}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 {foreach from=$GLOBS.metatags item=tag}
@@ -9,7 +9,7 @@
 <link rel="icon" href="{$tag.content}" type="image/x-icon" />
 <link rel="shortcut icon" href="{$tag.content}" type="image/ico" />
 {else if $tag.name eq 'canonical'}
-<link rel="canonical" href="http://{$smarty.server.HTTP_HOST}{$vlink|replace:'/index.html':'/'}" />
+<link rel="canonical" href="http://{$smarty.server.HTTP_HOST}{$vlink|replace:'/index.html':'/'}" itemprop="url" />
 {else if $tag.name|contains:'fb:'}
 <meta property="{$tag.name}" content="{$tag.content}">
 {else if $tag.name|contains:'social:'}

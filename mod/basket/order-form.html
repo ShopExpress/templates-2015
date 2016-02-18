@@ -55,7 +55,7 @@
 		{/if}
 
 		{if $item.htmltype eq 'hidden'}
-		{if $smarty.cookies[$item.name]}<input type="hidden" id="hidden{$item.name|capitalize}" name="{$item.name}" value="{$order_fields[$item.name]['value']|default:$smarty.cookies[$item.name]}" />{else}<input type="hidden" id="hidden{$item.name|capitalize}" name="{$item.name}" value="{$order_fields[$item.name]['value']}" />{/if}
+		{if $smarty.cookies[$item.name] || $smarty.session[$item.name]}<input type="hidden" id="hidden{$item.name|capitalize}" name="{$item.name}" value="{$order_fields[$item.name]['value']|default:$smarty.cookies[$item.name]|default:$smarty.session[$item.name]}" />{else}<input type="hidden" id="hidden{$item.name|capitalize}" name="{$item.name}" value="{$order_fields[$item.name]['value']}" />{/if}
 		{/if}
 
 		{if $item.htmltype eq 'combostore'}

@@ -58,49 +58,33 @@
 {if $GLOBS.YACOUNTER && $GLOBS.YACOUNTER|strpos:'Например' !== 0}
 <script type="text/javascript">
 {if $order_id && $ordered}
-var yaParams = {
-	order_id: "{$order_id}",
-	order_price: {$order_total|replace:',':'.'}, 
-	currency: "{$GLOBS.currency.code}",
-	exchange_rate: 1,
-	goods : []
-};
-{foreach from=$basketdata item=item name="orderitems"}yaParams.goods.push( { id: "{$item.oid}", name: "{$item.content.name}", price: {$item.content.price|replace:',':'.'}, quantity: {$item.count} } );{/foreach}	
-{/if}
-
-$(function (){
-	$('a.inbasket').on('click', function(){
-		try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('ProductPutFromCatalog'); }
-		catch(e)
-		{
-			//console.log('Счетчик Яндекс.Метрика не установлен.');
-		}
-	});
-	$('form.inbasket').on('submit', function(){
-		try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('ProductPutFromProduct'); }
-		catch(e)
-		{
-			//console.log('Счетчик Яндекс.Метрика не установлен.');
-		}
-	});
-	$('.fancybox.ajax').on('click', function(){
-		try { yaCounter{$GLOBS.YACOUNTER}.reachGoal($(this).text()); }
-		catch(e)
-		{
-			//console.log('Счетчик Яндекс.Метрика не установлен.');
-		}
-	});
+var products = [];
+{foreach from=$basketdata item=item name="orderitems"}products.push( { id: "{$item.oid}", name: "{$item.content.name}", brand : "{$item.content.vendor}", category : "{$item.parent.name}", price: {$item.content.price|replace:',':'.'}, quantity: {$item.count} } );{/foreach}	
+dataLayer.push({
+    "ecommerce": {
+        "purchase": {
+            "actionField": {
+                "id" : "{$order_id}",
+            },
+            "products": products
+        }
+    }
 });
+{/if}
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
 (function (d, w, c) {
     (w[c] = w[c] || []).push(function() {
         try {
-            w.yaCounter{$GLOBS.YACOUNTER} = new Ya.Metrika( { id:{$GLOBS.YACOUNTER},
-                    webvisor:true,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    trackHash:true,
-                    params:window.yaParams || { } } );
+            w.yaCounter{$GLOBS.YACOUNTER} = new Ya.Metrika( {
+                id:{$GLOBS.YACOUNTER},
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true,
+                ecommerce:"dataLayer"
+            });
         } catch(e) { }
     });
 
@@ -109,14 +93,14 @@ $(function (){
         f = function () { n.parentNode.insertBefore(s, n); };
     s.type = "text/javascript";
     s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+    s.src = "https://mc.yandex.ru/metrika/watch.js";
 
     if (w.opera == "[object Opera]") {
         d.addEventListener("DOMContentLoaded", f, false);
     } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img src="//mc.yandex.ru/watch/{$GLOBS.YACOUNTER}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/{$GLOBS.YACOUNTER}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 {/if}
 {if $GLOBS.PIWIK_SITE_ID}

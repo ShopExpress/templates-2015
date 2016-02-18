@@ -151,7 +151,9 @@
 							*}
 							<tr>
 								<td style="border-collapse: collapse;border: none; font-size:14px;font-family: 'trebuchet ms', geneva;text-align:right;" colspan="7">
-									<p style="font-size:14px;font-family: 'trebuchet ms', geneva;"><a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}">Постоянный адрес заказа</a></p>
+									<p style="font-size:14px;font-family: 'trebuchet ms', geneva;"><a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}">Постоянная ссылка на заказ</a>
+									{if $order_content.pay_method eq 'INVOICE'}<br />{if $order_fields.org_name.value}<a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}&tmpl=invoice-req" target="_blank">Распечатать счет</a>{else}<a href="http://{$GLOBS.SITE_HOST}/basket/?{$order_id}%7C{$order_hash}&tmpl=invoice-private" target="_blank">Распечатать счет</a>{/if}{/if}
+									</p>
 								</td>
 							</tr>
 							</table>

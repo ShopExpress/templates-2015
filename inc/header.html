@@ -3,7 +3,7 @@
 		<div class="header-inner">
 			
 			{if is_array($GLOBS.LOGO)}
-			<div class="brand brand-image"><a href="/" title="{$GLOBS.SITEDESCRIPTION|escape}"><img src="{$GLOBS.LOGO[0].path}" alt="{$GLOBS.SITENAME}" width="310" height="115" /></a></div>
+			<div class="brand brand-image"><a href="/" title="{$GLOBS.SITEDESCRIPTION|escape}"><img src="{$GLOBS.LOGO[0].path}" alt="{$GLOBS.SITENAME}" /></a></div>
 			{else if $GLOBS.LOGO}
 			<div class="brand brand-image"><a href="/" title="{$GLOBS.SITEDESCRIPTION|escape}"><img src="{$GLOBS.LOGO}" alt="{$GLOBS.SITENAME}" /></a></div>
 			{else}
