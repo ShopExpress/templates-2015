@@ -25,8 +25,24 @@
 				{include file="$TMPL_FOLDER/mod/ShopExpressCountDown.html"}
 				{include file="$TMPL_FOLDER/mod/Anonces.html"}
 				{if $annotate}<p class="lead">{$annotate}</p>{/if}
-				{include file="$TMPL_FOLDER/inc/catalog-sections.html"}
 				
+				{if $smarty.get.filter || $smarty.post.filter}
+				{if sizeof($directories_pubs)>0}
+				{include file="$TMPL_FOLDER/mod/paging.html" pagekey="page" pages=$directories_paging page=$directories_current perpage=$directories_perpage total=$directories_total}
+				<section class="products">
+					{foreach from=$directories_pubs item="item" name="cat"}{include file="$TMPL_FOLDER/inc/product-item.html" content=$item.content oid=$item.oid}{/foreach}
+				</section>
+				{include file="$TMPL_FOLDER/mod/paging.html" pagekey="page" pages=$directories_paging page=$directories_current perpage=$directories_perpage total=$directories_total}
+				{else}
+				<article>
+		    		<h3>Нет результатов</h3>
+			    	<p class="alert alert-info text-center">По заданным параметрам товаров не найдено.</p>
+				</article>
+				{/if}
+				{/if}
+				
+				{include file="$TMPL_FOLDER/inc/catalog-sections.html"}
+								
 				{include file="$TMPL_FOLDER/mod/ObjectsConnected.html"}
 				{include file="$TMPL_FOLDER/mod/ObjectsAttached.html"}
 				{include file="$TMPL_FOLDER/mod/ProductRelated.html"}
