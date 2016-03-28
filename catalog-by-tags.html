@@ -16,6 +16,7 @@
 				{include file="$TMPL_FOLDER/mod/Directories.html"}
 				{include file="$TMPL_FOLDER/mod/Filters.html"}
 				{include file="$TMPL_FOLDER/mod/NewsLine.html"}
+				{include file="$TMPL_FOLDER/mod/Tags.html"}
 				{include file="$TMPL_FOLDER/mod/LastPublish.html"}
 				{include file="$TMPL_FOLDER/mod/LastPhotos.html"}
 				{include file="$TMPL_FOLDER/mod/LastComments.html"}
@@ -24,6 +25,14 @@
 				{include file="$TMPL_FOLDER/mod/ShopExpressCountDown.html"}
 				{include file="$TMPL_FOLDER/mod/Anonces.html"}
 				{if $annotate}<p class="lead">{$annotate}</p>{/if}
+
+				{if $ext_tags && $tags_word eq 'тег1'}
+				<article>
+					<h3>Заголовок для 'тег1'</h3>
+					<p>Текст для 'тег1'</p>
+				</article>
+				{/if}
+
 				{if sizeof($directories_pubs)>0}
 				{include file="$TMPL_FOLDER/mod/paging.html" pagekey="page" pages=$directories_paging page=$directories_current perpage=$directories_perpage total=$directories_total}
 				<section class="products">
