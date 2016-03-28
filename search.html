@@ -19,7 +19,7 @@
 				<article>
 					{$text}
 				</article>
-			    {if sizeof($search_pubs) > 0 }
+			    {if sizeof($search_pubs) > 0}
 				<section class="products">
 				{foreach from=$search_pubs item="item" name="cat"}{include file="$TMPL_FOLDER/inc/product-item.html" content=$item.content oid=$item.oid}{/foreach}
 				</section>
