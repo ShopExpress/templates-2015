@@ -11,7 +11,14 @@
 
 		<div class="container">
 			{include file="$TMPL_FOLDER/mod/Pathline.html"}
-			{if $name}<h1>{$name}{if $ext_tags && $tags_word}: {$tags_word}{/if}</h1>{/if}
+			{if $name}
+				<h1>{$name}
+					{if $ext_tags}:
+					{if is_array($tags_word)}{foreach from=$tags_word item=tag_word}{$tag_word} {/foreach}
+					{else if $tags_word}{$tags_word}{/if}
+					{/if}
+				</h1>
+			{/if}
 			<aside>
 				{include file="$TMPL_FOLDER/mod/Directories.html"}
 				{include file="$TMPL_FOLDER/mod/Filters.html"}
