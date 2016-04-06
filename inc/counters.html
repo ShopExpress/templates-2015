@@ -74,6 +74,10 @@ dataLayer.push({
 </script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
+var yaParams = {
+    user_id: {$GLOBS.user_id},
+    login : '{$GLOBS.login|default:"Гость"}'
+};
 (function (d, w, c) {
     (w[c] = w[c] || []).push(function() {
         try {
@@ -82,6 +86,7 @@ dataLayer.push({
                 clickmap:true,
                 trackLinks:true,
                 accurateTrackBounce:true,
+                params: window.yaParams || {},
                 webvisor:true,
                 ecommerce:"dataLayer"
             });
@@ -99,6 +104,44 @@ dataLayer.push({
         d.addEventListener("DOMContentLoaded", f, false);
     } else { f(); }
 })(document, window, "yandex_metrika_callbacks");
+$(function (){
+	$('a.inbasket').on('click', function(){
+		try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('ProductPutFromCatalog'); }
+		catch(e)
+		{
+			//console.log('Счетчик Яндекс.Метрика не установлен.');
+		}
+	});
+	$('a.inbasket.btn-buyoneclick').on('click', function(){
+		try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('BuyOneClickFromCatalog'); }
+		catch(e)
+		{
+			//console.log('Счетчик Яндекс.Метрика не установлен.');
+		}
+	});
+	$('a.btn-buyoneclick:not(.inbasket)').on('click', function(){
+		try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('BuyOneClickFromProduct'); }
+		catch(e)
+		{
+			//console.log('Счетчик Яндекс.Метрика не установлен.');
+		}
+	});
+	$('form.inbasket').on('submit', function(){
+		try { yaCounter{$GLOBS.YACOUNTER}.reachGoal('ProductPutFromProduct'); }
+		catch(e)
+		{
+			//console.log('Счетчик Яндекс.Метрика не установлен.');
+		}
+	});
+	$('.fancybox.ajax').on('click', function(){
+		try { yaCounter{$GLOBS.YACOUNTER}.reachGoal($(this).text()); }
+		catch(e)
+		{
+			//console.log('Счетчик Яндекс.Метрика не установлен.');
+		}
+	});
+});
+
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/{$GLOBS.YACOUNTER}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
