@@ -23,7 +23,7 @@
 			{if $field.editable eq 'true'}
 			
 			{if $field.htmltype eq 'textfield'}
-			<div class="form-group {if $field.error}has-error{/if}">
+			<div class="form-group{if $field.error}has-error{/if}">
 				<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>
 				<div><input class="form-control" type="text" id="{$field.htmltype}{$field.name|capitalize}" name="shopexpressformblack[{$field.name}]" value="{$field.value}" placeholder="{$field.description}" /></div>
 			</div>

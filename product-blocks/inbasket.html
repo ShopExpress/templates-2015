@@ -57,9 +57,9 @@
 	{if $ext_basketextendedhelpers && $basketextendedhelpers_pageBtn}
 	{if $basketextendedhelpers_pageBtn eq 1}
 	<button type="submit" class="btn-buy" {if (isset($quantity) && $quantity <= 0) || $available eq 'no' || $available eq 'never'}disabled{/if}>В корзину</button> или 
-	<button type="button" class="btn-buyoneclick inbasket" {if (isset($quantity) && $quantity <= 0) || $available eq 'no' || $available eq 'never'}disabled{/if}>Купить в один клик</button>
+	<button type="button" data-tmpl="fast" class="btn-buyoneclick inbasket" {if (isset($quantity) && $quantity <= 0) || $available eq 'no' || $available eq 'never'}disabled{/if}>Купить в один клик</button>
 	{elseif $basketextendedhelpers_pageBtn eq 2}
-	<button type="button" class="btn-buyoneclick inbasket" {if (isset($quantity) && $quantity <= 0) || $available eq 'no' || $available eq 'never'}disabled{/if}>Купить в один клик</button>
+	<button type="button" data-tmpl="fast" class="btn-buyoneclick inbasket" {if (isset($quantity) && $quantity <= 0) || $available eq 'no' || $available eq 'never'}disabled{/if}>Купить в один клик</button>
 	{/if}
 	{else}
 	<button type="submit" class="btn-buy" {if (isset($quantity) && $quantity <= 0) || $available eq 'no' || $available eq 'never'}disabled{/if}>Купить</button>
