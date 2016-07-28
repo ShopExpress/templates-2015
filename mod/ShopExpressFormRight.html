@@ -30,6 +30,11 @@
 					<input class="form-control" type="file" id="{$field.htmltype}{$field.name|capitalize}" name="files[{$field.name}]" placeholder="{$field.description}" />
 				</div>
 				{/if}
+
+				{if $field.htmltype eq 'hidden'}
+				<input type="hidden" id="hidden{$field.name|capitalize}" name="{$field.name}" value="{$smarty.cookies[$field.name]|default:$smarty.session[$field.name]|default:''}" />
+				{/if}
+
 				{if $field.htmltype eq 'datefield'}
 				{assign var=datepicker value=1}
 				<div class="form-group {if $field.error}has-error{/if}">

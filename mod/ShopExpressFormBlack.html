@@ -28,6 +28,11 @@
 				<div><input class="form-control" type="text" id="{$field.htmltype}{$field.name|capitalize}" name="shopexpressformblack[{$field.name}]" value="{$field.value}" placeholder="{$field.description}" /></div>
 			</div>
 			{/if}
+
+			{if $field.htmltype eq 'hidden'}
+			<input type="hidden" id="hidden{$field.name|capitalize}" name="{$field.name}" value="{$smarty.cookies[$field.name]|default:$smarty.session[$field.name]|default:''}" />
+			{/if}
+
 			{if $field.htmltype eq 'files'}
 			<div class="form-group {if $field.error}has-error{/if}">
 				<label class="control-label" for="{$field.htmltype}{$field.name|capitalize}">{$field.runame}{if $field.necessary eq 'true'} <span style="color:#9F305F;">*</span> {/if}</label>

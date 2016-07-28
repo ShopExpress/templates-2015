@@ -1,7 +1,10 @@
-<form class="order-form well" action="/basket/?action=order#order-form" method="post" role="form">
+<form class="order-form well" action="/basket/?action=order" method="post" role="form">
 	{if $basketextendedfastform_hello}<p class="h3">{$basketextendedfastform_hello}</p>{/if}
 	<div class="input-group"><input type="phone" name="phone" value="{$GLOBS.userdata[$item.name]}" data-mask="{$basketextendedfastform_mask|default:'+7 (000) 000-0000'}" placeholder="{$basketextendedfastform_placeholder|default:'+7 495 1234567'}" data-mask-reverse="true" class="form-control" required="true" /><span class="input-group-btn"><button type="submit" class="btn-buyoneclick"><span class="glyphicon glyphicon-shopping-cart"></span> {$basketextendedfastform_button|default:'Заказать'}</button></span></div>
+	
+	<input name="tmpl" type="hidden" value="abs-order" />
 	<input name="antispam" type="hidden" value="{$smarty.now}" />
+	<input name="pay_method" type="hidden" value="CASH" />
 	<input name="orderflag" type="hidden" value="1" />
 	<script>
 	$(document).ready(function(){
@@ -10,7 +13,7 @@
 			var me = $(this);
 			
 			if(me.data('product') == 'ADDED') return true;
-			if(me.data('product') == 'ADDING'){ me.submit(); return false; }
+			if(me.data('product') == 'ADDING') return false;
 			
 			var Mask = me.Mask('white');
 			//has-error
@@ -18,31 +21,35 @@
 			if( phone.length > 3 )
 			{
 				me.data('product', 'ADDING');
-				$.ajax({
-					type	: $('.basket-form').attr('method') || 'POST',
-					cache	: false,
-					url		: $('.basket-form').attr('action'),
-					data	: $('.basket-form').serialize(),
-					success: function(html)
-					{
-						me.data('product', 'ADDED');
-						me.submit();
-						
-						{*
-						$.ajax({
-							type	: me.attr('method') || 'POST',
-							cache	: false,
-							url		: me.attr('action'),
-							data	: me.serialize(),
-							success: function(html)
+
+				$.basket.onsubmit( $('.basket-form') , 'abs', '#absbasket-box .modal-body', function(html)
+				{
+					me.data('product', 'ADDED');
+
+					$.ajax({
+						type	: me.attr('method') || 'POST',
+						dataType: 'json',
+						cache	: false,
+						url		: me.attr('action'),
+						data	: me.serialize(),
+						success: function( result )
+						{
+							//console.log(result);
+							if ( result.success )
 							{
-								Mask.remove('<p align=center>{$basketextendedfastform_success|default:'Спасибо за заказ!'}</p>');
-								//alert("{$basketextendedfastform_success|default:'Спасибо за заказ!'}");
+								Mask.remove();
+								me.children('.h3').html( '{$basketextendedfastform_success|default:'Спасибо за заказ!'}. Номер вашего заказа ' + result.order_id + '. Сумма заказа ' + result.total + '' );
 							}
-						});
-						*}
-					}
+							else
+							{
+								Mask.remove('<p align=center>Не удалось сделать заказ</p>');
+							}
+							$.basket.loadMini();
+							me.data('product', '');
+						}
+					});
 				});
+				return false;
 			}
 			else
 			{
