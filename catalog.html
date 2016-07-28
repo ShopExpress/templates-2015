@@ -11,7 +11,7 @@
 
 		<div class="container">
 			{include file="$TMPL_FOLDER/mod/Pathline.html"}
-			{if $name}<h1>{$name}{if $ext_tags && $tags_word}: {$tags_word}{/if}</h1>{/if}
+			{if $name}<h1>{$name}{if $ext_tags}: {if count($tags_word)>1}{foreach from=$tags_word item=tag_word}{$tag_word} {/foreach}{else}{$tags_word[0]}{/if}{/if}</h1>{/if}
 			<div class="content wide">
 				{include file="$TMPL_FOLDER/mod/ShopExpressCountDown.html"}
 				{include file="$TMPL_FOLDER/mod/Anonces.html"}
