@@ -25,7 +25,6 @@
 				$.basket.onsubmit( $('.basket-form') , 'abs', '#absbasket-box .modal-body', function(html)
 				{
 					me.data('product', 'ADDED');
-
 					$.ajax({
 						type	: me.attr('method') || 'POST',
 						dataType: 'json',
@@ -34,11 +33,10 @@
 						data	: me.serialize(),
 						success: function( result )
 						{
-							//console.log(result);
 							if ( result.success )
 							{
-								Mask.remove();
 								me.children('.h3').html( '{$basketextendedfastform_success|default:'Спасибо за заказ!'}. Номер вашего заказа ' + result.order_id + '. Сумма заказа ' + result.total + '' );
+								Mask.remove();
 							}
 							else
 							{
@@ -48,6 +46,7 @@
 							me.data('product', '');
 						}
 					});
+
 				});
 				return false;
 			}

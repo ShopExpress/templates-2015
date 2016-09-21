@@ -14,8 +14,10 @@
 		</div>
 		<div class="col-md-10 col-sm-9 col-xs-9">
 			{include file="$TMPL_FOLDER/mod/comments/questions.html"}
-
 			<textarea class="form-control" name="comment[txt]" placeholder="Введите сюда текст и нажмите отправить"></textarea>
+			<ul class="comment-item-files"></ul>
+			<input id="fileupload_input" type="file" name="files[]" data-url="/files/upload/{$GLOBS.user_id}/comment/" multiple accept="image/*" class="hide">
+			
 			{if $GLOBS.user_id neq 6}
 			<input type="hidden" name="comment[login]" value="{$GLOBS.userdata.name}" />
 			{else}
@@ -32,8 +34,25 @@
 			</div>
 			{/if}
 			<hr />
-			<p align="right"><span class="error">Отсутствует текст комментария</span><button class="btn btn-submit" type="submit">Отправить</button></p>
+			<p align="right">
+				<span class="error">Отсутствует текст комментария</span>
+				<button class="btn" type="button" rel="tooltip" title="Присоединить файл к сообщению" id="file_upload_btn"><i class="glyphicon glyphicon-paperclip"></i></button>
+				<button class="btn btn-submit" type="submit">Отправить</button></p>
 		</div>
 		</div>
 	</form>
 </div>
+
+<script type="text/javascript" src="/libs/js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/libs/js/jquery.fileupload.js"></script>
+<script type="text/javascript" src="/libs/js/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/libs/js/jquery.upload-starter.js"></script>
+<script type="text/javascript">	
+$(document).ready(function ()
+{
+	$('#fileupload_input').FileUploadStarter({
+		list : $('#message .comment-item-files'),
+		handler : $('#file_upload_btn')
+	});
+});
+</script>

@@ -11,7 +11,7 @@
 			<label class="control-label">
 				{$GLOBS.fieldnames[$objinfo.type][$field_name]}
 			</label>
-			<select class="form-control selectParams_{$field_name}" name="params[{$oid}][{$field_name}]">
+			<select class="form-control selectParams_{$field_name}" name="params[{$oid}][{$field_name}]" data-param="{$field_name}">
 			{foreach from=$field.values item=item key=key}
 			{if $item.editable eq 'true'}
 			<option value="{$key}"
@@ -53,7 +53,7 @@
 	<input type="hidden" name="oid" value="{$oid}" />
 	<input type="hidden" name="time" value="{$smarty.now}" />
 
-	{if $price}
+
 	{if $ext_basketextendedhelpers && $basketextendedhelpers_pageBtn}
 	{if $basketextendedhelpers_pageBtn eq 1}
 	<button type="submit" class="btn-buy" {if (isset($quantity) && $quantity <= 0) || $available eq 'no' || $available eq 'never'}disabled{/if}>В корзину</button> или 
@@ -64,8 +64,8 @@
 	{else}
 	<button type="submit" class="btn-buy" {if (isset($quantity) && $quantity <= 0) || $available eq 'no' || $available eq 'never'}disabled{/if}>Купить</button>
 	{/if}
-	{/if}
-		
+
+
 	{if $ext_bookmarked}
 	<a class="btn-bookmark {if $bookmarked}active{/if}" href="/favorites/?{$oid}&time={$smarty.now}" title="{if $bookmarked}Убрать&nbsp;из избранного{else}Добавить&nbsp;в избранное{/if}" rel="tooltip"><i class="glyphicon glyphicon-heart"></i></a>
 	{/if}

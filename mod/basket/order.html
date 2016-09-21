@@ -79,7 +79,7 @@
 					  	<a class="thumbnail" href="{$item.vlink}">{assign var="im_showed" value=0}{if sizeof($item.params)>0}{foreach from=$item.params key=key item=value}{foreach from=$item.content.images item="im"}{if $item.content[$key][$value]['name'] eq $im.name}<img src="/{image src=$im.path width=160 folder=".160"}" alt="{$im.name}">{assign var="im_showed" value="1"}{break}{/if}{/foreach}{/foreach}{/if}{if empty($im_showed)}{foreach from=$item.content.images item="im"}<img src="/{image src=$im.path width=160 folder=".160"}" alt="{$im.name}">{break}{/foreach}{/if}</a>
 				</td>
 				<td>
-				    <h4><a href="{$item.vlink}">{$item.content.name}</a> <sup class="label label-success {if !$item.discount}hide{/if}">Скидка <span class="discount">{$item.discount.human}</span></sup></h4>
+				    <h4><a href="{$item.vlink}">{$item.content.name}</a>  {if $item.discount.human}<sup class="label label-success">Скидка <span class="discount">{$item.discount.human}</span></sup>{/if}</h4>
 				
 				    {if sizeof($item.params)>0}
 				    <p><b>Опции : </b>
@@ -96,7 +96,7 @@
 				    {/if}
 				    {if $order_content.pay_status eq 'FP' && $item.content.args.ProductCouponGenerator}
 				    <p><img src="/adm/extJS/images/discount_coupon.png" align="left" />&nbsp;{if $item.content.args.ProductCouponGenerator.name}{$item.content.args.ProductCouponGenerator.name} на {$item.content.args.ProductCouponGenerator.money|price} действует{else}Действует{/if} с <b>{$item.content.args.ProductCouponGenerator.date_from|date_format:'Y.m.d'}</b> до <b>{$item.content.args.ProductCouponGenerator.date_to|date_format:'Y.m.d'}</b><br />
-				    Код для использования: <b>{$item.code}</b>
+				    {foreach from=$item.codes key=code item=used}Код для использования: <b>{$code}</b><br />{/foreach}
 				    </p>
 				    {else if $item.content.args.ProductCouponGenerator}
 				    <p>Код подарочного купона будет доступен сразу после оплаты.</p>
@@ -131,7 +131,7 @@
 				<td class="text-left" width="50%"><b>{$order_content.coupon.human}</b></td>
 			</tr>
 			{/if}
-			{if $order_content.discount}
+			{if $order_content.weight}
 			<tr>
 				<td class="text-right" width="50%">Общий вес</td>
 				<td class="text-left" width="50%"><b>{$order_content.weight} {numeral number=$order_content.weight|price:false ends='грамм,грамма,грамм'}</b></td>

@@ -1,0 +1,108 @@
+{if sizeof($basketdata)}
+<div class="row">
+	<div class="col-md-9">
+		<table class="table table-striped basketdata">
+		<thead>
+		  <tr>
+		    <th></th>
+		    <th></th>
+		    <th>Товар</th>
+		    <th>Цена</th>
+		    <th nowrap="nowrap" colspan="3" class="text-center">Кол-во</th>
+		    <th>Всего</th>
+		  </tr>
+		</thead>
+		<tbody>
+
+		{foreach from=$basketdata item=item}
+		{include file="$TMPL_FOLDER/mod/basket/basket-item.html"}
+		{/foreach}
+		
+		</tbody>
+		</table>
+	</div>
+	<div class="col-md-3" id="sticky_cart_total">
+		<table class="table table-striped">
+			<thead>
+			  <tr>
+			    <th colspan="2" class="text-right">Сумма заказа</th>
+			  </tr>
+			</thead>
+			<tbody>
+			{if $oldtotal neq  $total}
+			<tr>
+				<td><span id="basketCount">{$count}</span> шт.</td>
+				<td class="text-right"><span id="basketOldTotal">{$oldtotal|price:false}</span> {numeral number=$oldtotal|price:false ends=$GLOBS.currency.name}</td>
+			</tr>
+			{/if}
+			{if $totalweight}
+			<tr>
+				<td>Вес</td>
+				<td class="text-right"><span id="totalWeight">{$totalweight}</span>  {numeral number=$totalweight|price:false ends='грамм,грамма,грамм'}</small></td>
+			</tr>
+			{/if}
+			{if $basketdiscount}
+			<tr>
+				<td>Скидка</td>
+				<td class="text-right"><span id="basketDiscount" class="label label-success">{$basketdiscount.human}</span></td>
+			</tr>
+			{/if}
+			<tr>
+				<td>{if $oldtotal eq  $total}<span id="basketCount">{$count}</span> шт.{/if}</td>
+				<td class="text-right"><b><span id="basketTotal">{$total|price:false}</span> {numeral number=$total|price:false ends=$GLOBS.currency.name}</b></td>
+			</tr>
+			</tbody>
+		</table>
+		
+		{*
+		<div class="alert alert-warning">
+			{if !$coupon.statuses.date}Ошибочная дата использования купона.<br />{/if}
+			{if !$coupon.statuses.price}Сумма заказа не подходит.<br />{/if}
+			{if !$coupon.statuses.count}Количество товаров слишком мало.<br />{/if}
+			{if !$coupon.statuses.used}Купон уже использовали максимальное количество раз.<br />{/if}
+			{if !$coupon.statuses.self_used}Вы активировали купон ранее.<br />{/if}
+		</div>
+		*}
+		{if !$coupon.coupon_id && $coupons_enable}
+		<form action="/basket/" method="post" class="controls">
+		<div class="input-group">
+			<input type="text" class="form-control" id="inputCoupon" name="coupon" autocomplete=off value="" placeholder="Ввести промо-код">
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-coupon">Применить</button>
+			</span>
+		</div>
+		</form>
+		{/if}
+
+
+		{if $coupon.coupon_id}
+		<div class="alert alert-success">
+			Вы активировали <b>{$coupon.name}</b> на <b>{$coupon.human}</b><br />
+			{if $coupon.count_from || $coupon.count_to || $coupon.price_from || $coupon.price_to}
+			При покупке
+			{if $coupon.count_from} <u>от {$coupon.count_from} {numeral number=$coupon.count_from ends="вещи, вещей, вещей"}</u>{/if}
+			{if $coupon.count_to} до {$coupon.count_to} {numeral number=$coupon.count_from ends="вещи, вещей, вещей"}{/if}
+			{if $coupon.price_from || $coupon.price_to} на общую сумму {/if}
+			{if $coupon.price_from} <u>от {$coupon.price_from} {numeral number=$coupon.price_from|price:false ends=$GLOBS.currency.name}</u>{/if}
+			{if $coupon.price_to} до {$coupon.price_to} {numeral number=$coupon.price_to|price:false ends=$GLOBS.currency.name}{/if}.{/if} Время действия до {$coupon.date_to|date_format:"%d %B"}.
+			<p align="center"><a href="?coupon_destroy" class="btn btn-coupon controls" data-action="coupon">Отключить</a></p>
+		</div>
+		{/if}
+	</div>
+	<script>
+	!function ($) {
+		$(function(){
+			$('#sticky_cart_total').Sticky( $('.basket-content').height() );
+		})
+	}(window.jQuery)
+	</script>
+</div>
+
+{if $mintotal}
+<div class="well mintotal {if $mintotal <= $oldtotal}hide{/if}">
+	<h4 align="center">Минимальная сумма заказа {$mintotal|price}</h4>
+</div>
+{/if}
+{else}
+<p align="center">У вас нет отложенных в корзину товаров.</p>
+{/if}
