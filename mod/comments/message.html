@@ -20,7 +20,7 @@
 	
 	{* текст комментария *}
 	{if $GLOBS.group_id eq 2}<textarea class="form-control comment-item-message" name="comment[txt]">{$comment.txt}</textarea>{else}<p class="comment-item-message">{$comment.txt}</p>{/if}
-	{if $comment.files}<ul class="comment-item-files">{foreach from=$comment.files item=file key=key}<li class="upload-item"><a href="/{image src=$file width=800 crop=true folder=".800"}"" class="fancybox" rel="comment-{$comment.coid}-gallery"><img src="/{image src=$file width=80 height=80 crop=true folder=".80x80"}"></a></li>{/foreach}</ul>{/if}
+	{if $comment.files}<ul class="comment-item-files">{foreach from=$comment.files item=file key=key}<li class="upload-item"><a href="/{image src=$file width=800 crop=true folder=".800"}" class="fancybox" rel="comment-{$comment.coid}-gallery"><img src="/{image src=$file width=80 height=80 crop=true folder=".80x80"}"></a></li>{/foreach}</ul>{/if}
 	{if $authOnly && $GLOBS.user_id eq 6}
 		{*<a href="/cabinet/?tmpl=short&r={$vpath|escape:url}" class="btn btn-success" class="btn btn-primary" rel="nofollow" data-toggle="modal" data-target="#login-box"><i class="glyphicon glyphicon-user"></i> Войти</a>*}
 	{else}

@@ -1,11 +1,11 @@
 <form class="basket-form inbasket" action="/basket/" method=post role="form">
 	{if sizeof($basketparams_fields)>0}
 	<fieldset>
-		{foreach from=$basketparams_fields item=field key=name}
+		{foreach from=$basketparams_fields item=field key=field_name}
 		{if $field.values|editable_count}
 		<div class="form-group">
-			<label class="control-label" for="selectParams_{$name}">{$GLOBS.fieldnames[$objinfo.type][$name]}</label>
-			<select class="form-control" name="params[{$oid}][{$name}]" id="selectParams_{$name}">
+			<label class="control-label" for="selectParams_{$field_name}">{$GLOBS.fieldnames[$objinfo.type][$name]}</label>
+			<select class="form-control" name="params[{$oid}][{$field_name}]" id="selectParams_{$field_name}" data-param="{$field_name}">
 			{foreach from=$field.values item=item key=key}
 			{if $item.editable eq 'true'}
 			<option value="{$key}"

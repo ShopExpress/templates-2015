@@ -8,10 +8,10 @@
 		{foreach from=$basketparams_fields item=field key=field_name}
 		{if $field.values|editable_count}
 		<div class="form-group">
-			<label class="control-label">
+			<label class="control-label" for="selectParams_{$field_name}">
 				{$GLOBS.fieldnames[$objinfo.type][$field_name]}
 			</label>
-			<select class="form-control selectParams_{$field_name}" name="params[{$oid}][{$field_name}]" data-param="{$field_name}">
+			<select class="form-control" id="selectParams_{$field_name}" name="params[{$oid}][{$field_name}]" data-param="{$field_name}">
 			{foreach from=$field.values item=item key=key}
 			{if $item.editable eq 'true'}
 			<option value="{$key}"

@@ -15,7 +15,8 @@
 			if(me.data('product') == 'ADDED') return true;
 			if(me.data('product') == 'ADDING') return false;
 			
-			var Mask = me.Mask('white');
+			me.Mask( { color : 'white' } );
+
 			//has-error
 			var phone = me.find('[name=phone]').val();
 			if( phone.length > 3 )
@@ -31,16 +32,22 @@
 						cache	: false,
 						url		: me.attr('action'),
 						data	: me.serialize(),
-						success: function( result )
+						success : function( result )
 						{
 							if ( result.success )
 							{
-								me.children('.h3').html( '{$basketextendedfastform_success|default:'Спасибо за заказ!'}. Номер вашего заказа ' + result.order_id + '. Сумма заказа ' + result.total + '' );
-								Mask.remove();
+								if( result.total == "0р." )
+								{
+									me.Mask('destroy').html( '<p class="h3 text-center">Ошибка<br />Заполнены не все обязательные поля.<br />Воспользуйтесь <a href="/basket/">корзиной</a>.</p>');
+								}
+								else
+								{
+									me.Mask('destroy').html( '<p class="h3 text-center">{$basketextendedfastform_success|default:'Спасибо за заказ!'}.<br />Номер вашего заказа <a href="/basket/?' + result.order_id + '|' + result.order_hash + '" target="_blank">' + result.order_id + '</a>.<br />Сумма заказа ' + result.total + '</p>' );
+								}
 							}
 							else
 							{
-								Mask.remove('<p align=center>Не удалось сделать заказ</p>');
+								me.Mask('destroy').html( '<p class="h3 text-center">Ошибка, воспользуйтесь корзиной.</p>');
 							}
 							$.basket.loadMini();
 							me.data('product', '');
@@ -51,8 +58,8 @@
 				return false;
 			}
 			else
-			{
-				Mask.remove('<p align=center>Укажите верный номер телефона</p>');
+			{				
+				me.Mask('notify', '<p align=center>Укажите верный номер телефона</p>');
 			}
 			return false;
 		});
