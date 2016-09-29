@@ -119,7 +119,7 @@
 			</table>
 			<table class="table table-striped">
 			<tbody>
-			{if $order_content.discount}
+			{if $order_content.discount.human}
 			<tr>
 				<td class="text-right" width="50%">Накопительная скидка</td>
 				<td class="text-left" width="50%"><b>{$order_content.discount.human}</b></td>
