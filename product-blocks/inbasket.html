@@ -67,11 +67,11 @@
 
 
 	{if $ext_bookmarked}
-	<a class="btn-bookmark {if $bookmarked}active{/if}" href="/favorites/?{$oid}&time={$smarty.now}" title="{if $bookmarked}Убрать&nbsp;из избранного{else}Добавить&nbsp;в избранное{/if}" rel="tooltip"><i class="glyphicon glyphicon-heart"></i></a>
+	<a class="btn-bookmark {if $bookmarked}active{/if}" href="/favorites/?{$oid}&time={$smarty.now}" title="{if $bookmarked}Убрать&nbsp;из избранного{else}Добавить&nbsp;в избранное{/if}" rel="nofollow tooltip"><i class="glyphicon glyphicon-heart"></i></a>
 	{/if}
 
 	{if $ext_productscompared}
-	<a class="btn-compare {if $smarty.session.ProductsCompare[$oid]}active{/if}" href="/compare/?{$oid}&r=1&time={$smarty.now}" title="{if $smarty.session.ProductsCompare[$oid]}Убрать&nbsp;из сравнения{else}Добавить&nbsp;к сравнению{/if}" rel="tooltip"><i class="glyphicon glyphicon-retweet"></i></a>
+	<a class="btn-compare {if $smarty.session.ProductsCompare[$oid]}active{/if}" href="/compare/?{$oid}&r=1&time={$smarty.now}" title="{if $smarty.session.ProductsCompare[$oid]}Убрать&nbsp;из сравнения{else}Добавить&nbsp;к сравнению{/if}" rel="nofollow tooltip"><i class="glyphicon glyphicon-retweet"></i></a>
 	{/if}
 </form>
 {if $ext_basketextendedfastform}

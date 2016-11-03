@@ -31,7 +31,7 @@
 			<div class="col-sm-9">
 				<input class="form-control" type="text" id="{$item.htmltype}{$item.name|capitalize}" name="{$item.name}" value="{$order_fields[$item.name]['value']|default:$GLOBS.userdata[$item.name]}" placeholder="{$item.description}">
 				{if $order_fields[$item.name]['error']} <p class="help-inline">Обязательно для заполнения</p>{/if}
-				<link href="/media0/css/suggestions.css" type="text/css" rel="stylesheet" />
+				<link href="https://cdn.jsdelivr.net/jquery.suggestions/16.8/css/suggestions.css" type="text/css" rel="stylesheet" />
 				<script type="text/javascript">
 				!function ($) {
 					$(function(){

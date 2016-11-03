@@ -52,7 +52,7 @@
 </p>
 
 <hr />
-<form class="form-horizontal" role="form" action="/basket/?action=order" method="post">
+<form class="order-form form-horizontal" role="form" action="/basket/?action=order" method="post">
 	<input name="orderflag" type="hidden" value="1" />
 	<fieldset>
 	{assign var='fieldscount' value=sizeof($orderfields)}
@@ -204,10 +204,57 @@
 				</select>
 			</div>
 		</div>
-		{/if}					
-	<input type="hidden" name="antispam" value="{$smarty.now}" />
+		{/if}
 	</fieldset>
 	<p align="center"><button type="submit" class="btn btn-primary">Оформить заказ</button></p>
-	<script>$(document).ready(function(){ $("input[name*=antispam]").val('{$antispam}'); });</script>
+	<input name="tmpl" type="hidden" value="abs-order" />
+	<input name="antispam" type="hidden" value="{$smarty.now}" />
+	<input name="orderflag" type="hidden" value="1" />
+	<script>
+	$(document).ready(function(){
+		$('.order-form').on('submit', function()
+		{
+			var me = $(this);
+			
+			if(me.data('product') == 'ADDED') return true;
+			if(me.data('product') == 'ADDING') return false;
+			
+			me.Mask( { color : 'white' } );
+
+			//has-error
+			$.ajax({
+				type	: me.attr('method') || 'POST',
+				dataType: 'json',
+				cache	: false,
+				url		: me.attr('action'),
+				data	: me.serialize(),
+				success : function( result )
+				{
+					if ( result.success )
+					{
+						if( result.total == "0р." )
+						{
+							me.Mask('destroy').html( '<p class="h3 text-center">Ошибка<br />Заполнены не все обязательные поля.<br />Воспользуйтесь <a href="/basket/">корзиной</a>.</p>');
+						}
+						else
+						{
+							me.Mask('destroy').html( '<p class="h3 text-center">{$basketextendedfastform_success|default:'Спасибо за заказ!'}.<br />Номер вашего заказа <a href="/basket/?' + result.order_id + '|' + result.order_hash + '" target="_blank">' + result.order_id + '</a>.<br />Сумма заказа ' + result.total + '</p>' );
+						}
+					}
+					else
+					{
+						me.Mask('destroy').html( '<p class="h3 text-center">Ошибка, воспользуйтесь корзиной.</p>');
+					}
+					$.basket.loadMini();
+					me.data('product', '');
+				}
+			});
+
+			return false;
+		});
+		$('.order-form [name=phone]').inputmask("{$basketextendedfastform_mask|default:'+7 (000) 000-0000'}");
+		$("input[name*=antispam]").val('{$GLOBS.USER_ANTISPAM_KEY}');
+	});
+	</script>
 </form>
 {/if}
