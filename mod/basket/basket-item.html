@@ -6,7 +6,7 @@
 		{if $item.basket_image.path}<a class="thumbnail" href="{$item.vlink}"><img src="/{image src=$item.basket_image.path width=160 folder=".160"}" alt="{$item.basket_image.name}"></a>{/if}
 	</td>
 	<td>
-    	<h4><a href="{$item.vlink}{$item.vlink_tail}">{$item.content.name}</a>{if $item.content.discount.human} <sup class="label label-success">{$item.content.discount.human}</sup>{/if}</h4>
+    	<h4><a href="{$item.vlink}{$item.vlink_tail}">{$item.content.name}</a>{if $item.discount.human} <sup class="label label-success">{$item.discount.human}</sup>{/if}</h4>
 	
 {*<!--
 	для смены спецификаций в корзине

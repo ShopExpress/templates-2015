@@ -214,11 +214,7 @@
 	$(document).ready(function(){
 		$('.order-form').on('submit', function()
 		{
-			var me = $(this);
-			
-			if(me.data('product') == 'ADDED') return true;
-			if(me.data('product') == 'ADDING') return false;
-			
+			var me = $(this);			
 			me.Mask( { color : 'white' } );
 
 			//has-error
@@ -246,7 +242,6 @@
 						me.Mask('destroy').html( '<p class="h3 text-center">Ошибка, воспользуйтесь корзиной.</p>');
 					}
 					$.basket.loadMini();
-					me.data('product', '');
 				}
 			});
 

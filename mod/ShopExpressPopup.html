@@ -53,7 +53,7 @@ $(document).ready(function()
     
     $('#getgift-box form').on('submit', function()
     {
-	   var Mask = $('#getgift-box .modal-body').Mask();
+	   $('#getgift-box .modal-body').Mask();
 		$.ajax(
 		{
 			type: "POST",
@@ -62,14 +62,11 @@ $(document).ready(function()
 
 			success : function(res)
 			{
-				Mask.RemoveMask();
-				$('#getgift-box .modal-body').html(res);
-				//location.reload();
+				$('#getgift-box .modal-body').Mask('destroy').html(res);
 			},
 			error : function()
 			{
-				Mask.RemoveMask();
-				$('#getgift-box .modal-body').html(res);
+				$('#getgift-box .modal-body').Mask('destroy').html(res);
 			}
 		});
 		return false;
