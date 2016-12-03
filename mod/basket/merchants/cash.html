@@ -1,8 +1,8 @@
 {if $type eq 'radio'}
 <div class="radio">
 	<label>
-		<input type="radio" name="pay_method" value="CASH" {if $order_fields['pay_method']['value'] eq 'CASH'}checked {/if} /> {$GLOBS.merchants.cash.btn|default:'Оплатить наличными при получении'}
-		<p class="help-block">Оплата заказа наличными при получении на почте, от курьера, или в наших фирменных магазинах.</p>
+		<input type="radio" name="pay_method" value="CASH" {if $order_fields['pay_method']['value'] eq 'CASH'}checked {/if} /> {$GLOBS.merchants.cash.btn|default:'Оплатить при получении'}
+		<p class="help-block">Оплата заказа наличными при получении на почте или от курьера.</p>
 	</label>
 </div>
 {/if}

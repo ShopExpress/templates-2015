@@ -10,7 +10,7 @@
 			<div class="col-sm-9">
 				{assign var=datepicker value=1}
 				<input class="form-control datefield" type="text" id="{$item.htmltype}{$item.name|capitalize}" name="{$item.name}" value="{$order_fields[$item.name]['value']|default:$GLOBS.userdata[$item.name]|escape}" placeholder="{$item.description}" data-date-format="dd.mm.yyyy" data-date="01.01.2014" />
-				{if $order_fields[$item.name]['error']}<p class="help-block">Обязательно для заполнения</p>{/if}
+				{include file="$TMPL_FOLDER/mod/basket/order-form-errors.html" error=$order_fields[$item.name]['error']}
 			</div>
 		</div>
 		{/if}
@@ -20,7 +20,7 @@
 			<label class="control-label col-sm-3" for="{$item.htmltype}{$item.name|capitalize}">{$item.runame}{if $item.necessary eq 'true'} <sup style="color:red;">!</sup> {/if}</label>
 			<div class="col-sm-9">
 				<input class="form-control" type="text" id="{$item.htmltype}{$item.name|capitalize}" name="{$item.name}" value="{$order_fields[$item.name]['value']|default:$GLOBS.userdata[$item.name]|escape}" placeholder="{$item.description}">
-				{if $order_fields[$item.name]['error']}<p class="help-block">Обязательно для заполнения</p>{/if}
+				{include file="$TMPL_FOLDER/mod/basket/order-form-errors.html" error=$order_fields[$item.name]['error']}
 			</div>
 		</div>
 		{/if}
@@ -30,7 +30,7 @@
 			<label class="control-label col-sm-3" for="{$item.htmltype}{$item.name|capitalize}">{$item.runame}{if $item.necessary eq 'true'} <sup style="color:red;">!</sup> {/if}</label>
 			<div class="col-sm-9">
 				<input class="form-control" type="text" id="{$item.htmltype}{$item.name|capitalize}" name="{$item.name}" value="{$order_fields[$item.name]['value']|default:$GLOBS.userdata[$item.name]}" placeholder="{$item.description}">
-				{if $order_fields[$item.name]['error']} <p class="help-inline">Обязательно для заполнения</p>{/if}
+				{include file="$TMPL_FOLDER/mod/basket/order-form-errors.html" error=$order_fields[$item.name]['error']}
 				<link href="https://cdn.jsdelivr.net/jquery.suggestions/16.8/css/suggestions.css" type="text/css" rel="stylesheet" />
 				<script type="text/javascript">
 				!function ($) {
@@ -67,7 +67,7 @@
 					<option value="{$field_item_key}" {if $order_fields[$item.name]['value'] eq $field_item_key}selected{/if}>{$field_item}</option>
 				{/foreach}
 				</select>
-				{if $order_fields[$item.name]['error']}<p class="help-inline">Обязательно для заполнения</p>{/if}
+				{include file="$TMPL_FOLDER/mod/basket/order-form-errors.html" error=$order_fields[$item.name]['error']}
 				{if $item.description}<p class="help-block">{$item.description}</p>{/if}
 			</div>
 		</div>
@@ -78,7 +78,7 @@
 			<label class="control-label col-sm-3" for="{$item.htmltype}{$item.name|capitalize}">{$item.runame}{if $item.necessary eq 'true'} <sup style="color:red;">!</sup> {/if}</label>
 			<div class="col-sm-9">
 				<textarea class="form-control" name="{$item.name}" cols=30 wrap="wrap" id="{$item.htmltype}{$item.name|capitalize}" placeholder="{$item.description}">{$order_fields[$item.name]['value']|default:$GLOBS.userdata[$item.name]}</textarea>
-				{if $order_fields[$item.name]['error']}<p class="help-block">Обязательно для заполнения</p>{/if}
+				{include file="$TMPL_FOLDER/mod/basket/order-form-errors.html" error=$order_fields[$item.name]['error']}
 			</div>
 		</div>
 		{/if}
@@ -95,7 +95,7 @@
 		            <input type="checkbox" id="checkbox{$item.name|capitalize}" name="{$item.name}" value="1" {if $item.value}checked{/if} />
 		            <label for="checkbox{$item.name|capitalize}">{$item.runame}{if $item.necessary eq 'true'} <sup style="color:red;">!</sup> {/if}</label>
 		            {/if}
-					{if $order_fields[$item.name]['error']}<p class="help-block">Обязательно для заполнения</p>{/if}
+					{include file="$TMPL_FOLDER/mod/basket/order-form-errors.html" error=$order_fields[$item.name]['error']}
 				</div>
 			</div>
 		</div>
@@ -135,7 +135,7 @@
 							</option>
 						{/foreach}
 					</select>
-					{if $order_fields[$item.name]['error']}<span class="help-block">Обязательно для заполнения</span>{/if}
+					{include file="$TMPL_FOLDER/mod/basket/order-form-errors.html" error=$order_fields['delivery']['error']}
 					<p class="help-block alert hide" id="deliveryPrice"></p>
 					{if $item.description}<p class="help-block">{$item.description}</p>{/if}
 				</div>
@@ -149,7 +149,7 @@
 		<div class="row {if $order_fields['pay_method']['error']} has-error{/if}">
 			<div class="col-md-12">
 				<p class="h4">Способ оплаты</p>
-				{if $order_fields['pay_method']['error']}<span class="help-block">Обязательно для заполнения</span>{/if}
+				{include file="$TMPL_FOLDER/mod/basket/order-form-errors.html" error=$order_fields['pay_method']['error']}
 			</div>
 			<div class="col-sm-offset-3 col-md-offset-0 col-md-12 col-sm-9">
 			{if count($GLOBS.merchants)<10}
