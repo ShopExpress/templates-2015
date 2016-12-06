@@ -51,6 +51,7 @@
 		</small>
     </p>
     {/if}
+    {if $item.content.available eq 'no' || $item.content.available eq 'never'}<p class="alert alert-danger">К сожалению, товара больше нет в наличии, заказать его невозможно. Перед заказом он будет удален из корзины.</p>{/if}
 	</td>
 	<td nowrap="nowrap">
 		<span class="price">{$item.price|price:false}</span>{$GLOBS.currency.shortname}
