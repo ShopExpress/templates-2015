@@ -49,6 +49,7 @@
 				<div class="col-md-4 col-xs-6">
 					<p class="h5"><a href="/">{$GLOBS.SITENAME}<br /><small>{$GLOBS.SITEDESCRIPTION}</small></a></p>
 					<p>{$GLOBS.COPYRIGHT}</p>
+
 				</div>
 				<div class="col-md-3 col-xs-6">
 					{if $social_button}
@@ -62,6 +63,7 @@
 					{/if}
 				</div>
 				<div class="col-md-5 col-xs-12">
+					{include file="$TMPL_FOLDER/mod/RegisterSubscribe.html"}
 					{include file="$TMPL_FOLDER/mod/ShopExpressCopyright.html"}
 				</div>
 			</div>

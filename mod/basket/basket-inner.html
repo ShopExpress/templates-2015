@@ -41,7 +41,7 @@
 				<td class="text-right"><span id="totalWeight">{$totalweight}</span>  {numeral number=$totalweight|price:false ends='грамм,грамма,грамм'}</small></td>
 			</tr>
 			{/if}
-			{if $basketdiscount}
+			{if $basketdiscount.human}
 			<tr>
 				<td>Скидка</td>
 				<td class="text-right"><span id="basketDiscount" class="label label-success">{$basketdiscount.human}</span></td>
@@ -53,16 +53,15 @@
 			</tr>
 			</tbody>
 		</table>
+		{if $coupon}
+		{if !$coupon.statuses.date}<p class="alert alert-warning">Ошибочная дата использования купона.</p>{/if}
+		{if !$coupon.statuses.price}<p class="alert alert-warning">Сумма заказа не подходит.</p>{/if}
+		{if !$coupon.statuses.count}<p class="alert alert-warning">Количество товаров слишком мало.</p>{/if}
+		{if !$coupon.statuses.used}<p class="alert alert-warning">Купон уже использовали максимальное количество раз.</p>{/if}
+		{if !$coupon.statuses.self_used}<p class="alert alert-warning">Вы активировали купон ранее.</p>{/if}
+		{if !$coupon.statuses.fake}<p class="alert alert-warning">Купона с таким кодом не существует.</p>{/if}
+		{/if}
 		
-		{*
-		<div class="alert alert-warning">
-			{if !$coupon.statuses.date}Ошибочная дата использования купона.<br />{/if}
-			{if !$coupon.statuses.price}Сумма заказа не подходит.<br />{/if}
-			{if !$coupon.statuses.count}Количество товаров слишком мало.<br />{/if}
-			{if !$coupon.statuses.used}Купон уже использовали максимальное количество раз.<br />{/if}
-			{if !$coupon.statuses.self_used}Вы активировали купон ранее.<br />{/if}
-		</div>
-		*}
 		{if !$coupon.coupon_id && $coupons_enable}
 		<form action="/basket/" method="post" class="controls">
 		<div class="input-group">
