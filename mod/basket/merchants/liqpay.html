@@ -7,5 +7,5 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="LIQPAY" {if $order_fields['pay_method']['value'] eq 'LIQPAY'}checked {/if}>{$GLOBS.merchants.liqpay.btn|default:'Оплатить через LiqPay'}</option>
+<option value="LIQPAY" {if $order_fields['pay_method']['value'] eq 'LIQPAY'}selected {/if}>{$GLOBS.merchants.liqpay.btn|default:'Оплатить через LiqPay'}</option>
 {/if}

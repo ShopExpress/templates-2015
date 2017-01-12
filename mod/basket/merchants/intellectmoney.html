@@ -118,5 +118,5 @@
 
 
 {if $type eq 'option'}
-<option value="INTELLECTMONEY" {if $order_fields['pay_method']['value'] eq 'INTELLECTMONEY'}checked {/if}>{$GLOBS.merchants.intellectmoney.btn|default:'Оплатить через IntellectMoney'}</option>
+<option value="INTELLECTMONEY" {if $order_fields['pay_method']['value'] eq 'INTELLECTMONEY'}selected {/if}>{$GLOBS.merchants.intellectmoney.btn|default:'Оплатить через IntellectMoney'}</option>
 {/if}

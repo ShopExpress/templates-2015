@@ -7,5 +7,5 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="ROBOKASSA" {if $order_fields['pay_method']['value'] eq 'ROBOKASSA'}checked {/if}>{$GLOBS.merchants.robokassa.btn|default:'Оплатить через ROBOKASSA'}</option>
+<option value="ROBOKASSA" {if $order_fields['pay_method']['value'] eq 'ROBOKASSA'}selected {/if}>{$GLOBS.merchants.robokassa.btn|default:'Оплатить через ROBOKASSA'}</option>
 {/if}

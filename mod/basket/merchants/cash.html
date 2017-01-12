@@ -7,5 +7,5 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="CASH" {if $order_fields['pay_method']['value'] eq 'CASH'}checked {/if}>{$GLOBS.merchants.cash.btn|default:'Оплатить наличными при получении'}</option>
+<option value="CASH" {if $order_fields['pay_method']['value'] eq 'CASH'}selected {/if}>{$GLOBS.merchants.cash.btn|default:'Оплатить наличными при получении'}</option>
 {/if}

@@ -7,5 +7,5 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="QIWI" {if $order_fields['pay_method']['value'] eq 'QIWI'}checked {/if}>{$GLOBS.merchants.qiwi.btn|default:'Оплатить через QIWI'}</option>
+<option value="QIWI" {if $order_fields['pay_method']['value'] eq 'QIWI'}selected {/if}>{$GLOBS.merchants.qiwi.btn|default:'Оплатить через QIWI'}</option>
 {/if}

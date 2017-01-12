@@ -1,7 +1,8 @@
+{if $ext_registersubscribe}
 <form role="form" class="form-horizontal" method="post" enctype='multipart/form-data' action="" id="RegisterSubscribeForm">
   	<input type="hidden" name="antispam" value="" />
   	<input type="hidden" name="registersubscribeform[from]" value="{$oid}" />
-	<p>{$registersubscribe_hello|default:"Подпишитесь, чтобы получать обновленный прайс-лист наших товаров."}</p>
+	<p id="RegisterSubscribeFormAnswer">{$registersubscribe_hello|default:"Подпишитесь, чтобы получать обновленный прайс-лист наших товаров."}</p>
 	<div class="alert alert-danger text-center hide"></div>
 	<div class="form-group">
         <div class="col-sm-9">
@@ -22,8 +23,10 @@ $(document).ready(function()
 	$('#RegisterSubscribeForm').ContactForm(
 		{
 			ok : '{$registersubscribe_thanks|default:"Спасибо, теперь вы подписаны на наши обновления."}',
-			color : 'white'
+			color : 'white',
+			selector : '#RegisterSubscribeFormAnswer'
 		}
 	);
 });
 </script>
+{/if}

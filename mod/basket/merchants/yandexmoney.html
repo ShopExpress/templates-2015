@@ -7,7 +7,7 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="YANDEXMONEY" {if $order_fields['pay_method']['value'] eq 'YANDEXMONEY'}checked {/if}>{$GLOBS.merchants.yandexmoney.btn|default:'Яндекс.Деньги'}</option>
+<option value="YANDEXMONEY"{if $order_fields['pay_method']['value'] eq 'YANDEXMONEY'} selected{/if}>{$GLOBS.merchants.yandexmoney.btn|default:'Яндекс.Деньги'}</option>
 {/if}
 
 {if $GLOBS.merchants.yandexmoney.bcard}
@@ -20,6 +20,6 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="YANDEXBCARD" {if $order_fields['pay_method']['value'] eq 'YANDEXBCARD'}checked {/if}>Банковская карта Visa (включая Electron), MasterCard или Maestro</option>
+<option value="YANDEXBCARD"{if $order_fields['pay_method']['value'] eq 'YANDEXBCARD'} selected{/if}>Банковская карта Visa (включая Electron), MasterCard или Maestro</option>
 {/if}
 {/if}

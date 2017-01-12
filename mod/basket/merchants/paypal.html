@@ -7,5 +7,5 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="PAYPAL" {if $order_fields['pay_method']['value'] eq 'PAYPAL'}checked {/if}>{$GLOBS.merchants.paypal.btn|default:'Оплатить через PayPal'}</option>
+<option value="PAYPAL" {if $order_fields['pay_method']['value'] eq 'PAYPAL'}selected {/if}>{$GLOBS.merchants.paypal.btn|default:'Оплатить через PayPal'}</option>
 {/if}

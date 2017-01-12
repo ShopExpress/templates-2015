@@ -89,7 +89,7 @@
 				<div class="col-sm-offset-3 col-sm-9">
 		            {if $item.description}
 		            <p class="help-block">
-			        	<label><input type="checkbox" id="checkbox{$item.name|capitalize}" name="{$item.fieldname}" value="1" {if $item.value}checked{/if} /> {$item.description}</label>
+			        	<label><input type="checkbox" id="checkbox{$item.name|capitalize}" name="{$item.name}" value="1" {if $item.value}checked{/if} /> {$item.description}</label>
 					</p>
 		            {else}
 		            <input type="checkbox" id="checkbox{$item.name|capitalize}" name="{$item.name}" value="1" {if $item.value}checked{/if} />

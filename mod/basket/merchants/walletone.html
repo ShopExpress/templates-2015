@@ -7,5 +7,5 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="WALLETONE" {if $order_fields['pay_method']['value'] eq 'WALLETONE'}checked {/if}>{$GLOBS.merchants.yandexmoney.btn|default:'Единая касса WalletOne - Более ста способов приема платежей'}</option>
+<option value="WALLETONE" {if $order_fields['pay_method']['value'] eq 'WALLETONE'}selected {/if}>{$GLOBS.merchants.yandexmoney.btn|default:'Единая касса WalletOne - Более ста способов приема платежей'}</option>
 {/if}

@@ -7,5 +7,5 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="RBKMONEY" {if $order_fields['pay_method']['value'] eq 'RBKMONEY'}checked {/if}>{$GLOBS.merchants.rbkmoney.btn|default:'Оплатить через RBKMoney'}</option>
+<option value="RBKMONEY" {if $order_fields['pay_method']['value'] eq 'RBKMONEY'}selected {/if}>{$GLOBS.merchants.rbkmoney.btn|default:'Оплатить через RBKMoney'}</option>
 {/if}

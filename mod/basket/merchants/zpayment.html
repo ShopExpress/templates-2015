@@ -7,5 +7,5 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="ZPAYMENT" {if $order_fields['pay_method']['value'] eq 'ZPAYMENT'}checked {/if}>{$GLOBS.merchants.zpayment.btn|default:'Оплатить через Z-Payment'}</option>
+<option value="ZPAYMENT"{if $order_fields['pay_method']['value'] eq 'ZPAYMENT'} selected{/if}>{$GLOBS.merchants.zpayment.btn|default:'Оплатить через Z-Payment'}</option>
 {/if}

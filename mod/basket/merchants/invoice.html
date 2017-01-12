@@ -7,5 +7,5 @@
 </div>
 {/if}
 {if $type eq 'option'}
-<option value="INVOICE" {if $order_fields['pay_method']['value'] eq 'INVOICE'}checked {/if}>{$GLOBS.merchants.invoice.btn|default:'Оплатить по счету'}</option>
+<option value="INVOICE" {if $order_fields['pay_method']['value'] eq 'INVOICE'}selected {/if}>{$GLOBS.merchants.invoice.btn|default:'Оплатить по счету'}</option>
 {/if}
