@@ -51,7 +51,7 @@
 	</table>
 	<p align="right">
 		{if $oldtotal neq  $total}<small>Сумма без скидки: <span id="basketOldTotal">{$oldtotal|price:false}</span> {numeral number=$oldtotal|price:false ends=$GLOBS.currency.name}</small><br />{/if}
-		{if $basketdiscount}<small class="label label-success">Ваша скидка: <span id="basketDiscount">{$basketdiscount.human}</span></small><br />{/if}
+		{if $basketdiscount.human}<small class="label label-success">Ваша скидка: <span id="basketDiscount">{$basketdiscount.human}</span></small><br />{/if}
 		<span id="basketCount">{$count}</span> шт. на сумму: <b><span id="basketTotal">{$total|price:false}</span> {numeral number=$total|price:false ends=$GLOBS.currency.name}</b><br />
 		{if $totalweight}<small>Вес заказа: <span id="totalWeight">{$totalweight}</span>  {numeral number=$totalweight|price:false ends='грамм,грамма,грамм'}</small><br />{/if}
 	</p>

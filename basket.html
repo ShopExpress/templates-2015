@@ -79,24 +79,6 @@
 							</div>
 						</div>
 					</form>
-					<script>
-					$(document).ready(function()
-					{
-						$('#BasketMagicLinkForm').ContactForm(
-							{
-								ok : 'Выслана на емейл',
-								color : 'white',
-								callback : function()
-								{
-									$('#BasketMagicLinkForm').append('<h4 align="center" class="well">На указанный адрес отправлена ссылка на корзину</h4>');
-									$('#BasketMagicLinkForm').css('min-height', '0px');
-									setTimeout( function(){ $('#BasketMagicLink').modal('hide'); }, 1500 );
-									
-								}
-							}
-						);
-					});
-					</script>
 			      </div>
 			    </div>
 			  </div>
