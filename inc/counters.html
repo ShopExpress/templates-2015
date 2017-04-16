@@ -31,8 +31,6 @@
 	{/foreach}
 	ga('ecommerce:send');
 {/if}
-
-
 	$(function (){
 		$('a.inbasket').click( function(){
 			var category_name = $('h1').first().text();
@@ -57,7 +55,8 @@
 
 {if $GLOBS.YACOUNTER && $GLOBS.YACOUNTER|strpos:'Например' !== 0}
 <script type="text/javascript">
-{if $order_id && $ordered}
+window.dataLayer = window.dataLayer || [];
+{if $order_id && $order_content.views <= 1}
 var products = [];
 {foreach from=$basketdata item=item name="orderitems"}products.push( { id: "{$item.oid}", name: "{$item.content.name}", brand : "{$item.content.vendor}", category : "{$item.parent.name}", price: {$item.content.price|replace:',':'.'}, quantity: {$item.count} } );{/foreach}	
 dataLayer.push({
@@ -65,6 +64,8 @@ dataLayer.push({
         "purchase": {
             "actionField": {
                 "id" : "{$order_id}",
+                {if $order_content.coupon}"coupon" : '{$order_content.coupon.id}',{/if}
+                "goal_id" : "Purchase"
             },
             "products": products
         }

@@ -9,7 +9,7 @@
 <link rel="icon" href="{$tag.content}" type="image/x-icon" />
 <link rel="shortcut icon" href="{$tag.content}" type="image/ico" />
 {else if $tag.name eq 'canonical'}
-<link rel="canonical" href="http://{$smarty.server.HTTP_HOST}{$vlink|replace:'/index.html':'/'}" itemprop="url" />
+<link rel="canonical" href="//{$smarty.server.HTTP_HOST}{$vlink|replace:'/index.html':'/'}" itemprop="url" />
 {else if $tag.name|contains:'fb:'}
 <meta property="{$tag.name}" content="{$tag.content}">
 {else if $tag.name|contains:'social:'}
@@ -71,8 +71,8 @@
 
 {if $ext_socialposting}
 <meta property="og:title" content="{$title}"/>
-<meta property="og:image" content="http://{$smarty.server.SERVER_NAME}{$images[0].path}"/>
-<link rel="image_src" href="http://{$smarty.server.SERVER_NAME}{$images[0].path}" />
+<meta property="og:image" content="//{$smarty.server.SERVER_NAME}{$images[0].path}"/>
+<link rel="image_src" href="//{$smarty.server.SERVER_NAME}{$images[0].path}" />
 <meta property="og:site_name" content="{$GLOBS.SITENAME}"/>
 <meta property="og:description" content="{if $annotate}{$annotate|addslashes|strip_tags}{else}{$text|addslashes|strip_tags|truncate:200}{/if}"/>
 {/if}

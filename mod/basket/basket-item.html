@@ -54,7 +54,7 @@
     {if $item.content.available eq 'no' || $item.content.available eq 'never'}<p class="alert alert-danger">К сожалению, товара больше нет в наличии, заказать его невозможно. Перед заказом он будет удален из корзины.</p>{/if}
 	</td>
 	<td nowrap="nowrap">
-		<span class="price">{$item.price|price:false}</span>{$GLOBS.currency.shortname}
+		<span class="price">{$item.price|price}</span>
 	</td>
 	<td nowrap="nowrap">
 		<a href="/basket/?action=increase&oid={$item.product_key}" class="btn-increase controls" data-count="{$item.count}" data-oid="{$item.oid}" data-name="{$item.content.name}" data-price="{$item.price}" data-category="{$item.parent_oid}" data-brand="{$item.content.vendor}" data-action="increase" data-product="product{$item.product_key}" rel="nofollow"></a>
@@ -67,7 +67,7 @@
 		<a href="/basket/?action=reduce&oid={$item.product_key}" class="btn-decrease controls" data-count="{$item.count}" data-oid="{$item.oid}" data-name="{$item.content.name}" data-category="{$item.parent_oid}" data-brand="{$item.content.vendor}" data-action="reduce" data-product="product{$item.product_key}" rel="nofollow"></a>
 	</td>
 	<td nowrap="nowrap">
-		<span class="total">{$item.total|price:false}</span>{$GLOBS.currency.shortname}
+		<span class="total">{$item.total|price}</span>
 	</td>
 </tr>
 {include file="$TMPL_FOLDER/mod/BasketObjectsConnected.html" item_oid=$item.product_key}

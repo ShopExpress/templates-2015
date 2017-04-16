@@ -1,14 +1,12 @@
 <section class="basket-content">
 {if $basket_notify}
+{foreach from=$basket_notify item=item}
 <div class="alert alert-info">
-	<a class="close" data-dismiss="alert" href="#">&times;</a>
-    <p><b>Извините</b><br>
+    <p class="basket-item inbasket-item"><b>Извините</b><br>
     В данный момент выбранного товара нет в достаточном количестве:</p>
-    <b class="inbasket-item">{$basket_notify.name} ({$basket_notify_count} {numeral number=$basket_notify_count ends=$basket_notify.units|default:'шт.,шт.,шт.'})</b>
-    {if sizeof($basket_notify_params)>0}
-    {foreach from=$basket_notify_params key=key item=value}<br />&mdash; {$GLOBS.fieldnames[7][$key]}: {$basket_notify[$key][$value]['name']} {/foreach}
-    {/if}
+    <b>{getobjcontent oid=$item.oid field='name'} ({$item.count} {numeral number=$item.count ends=$item.units|default:'шт.,шт.,шт.'})</b>
 </div>
+{/foreach}
 {/if}
 <script>var eShopPostIndex = '{$postindex}';</script>			
 {if sizeof($basketdata)>0}
