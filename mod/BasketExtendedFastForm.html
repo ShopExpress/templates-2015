@@ -22,8 +22,11 @@
 			if( phone.length > 3 )
 			{
 				me.data('product', 'ADDING');
-
-				$.basket.onsubmit( $('.basket-form') , 'abs', '#absbasket-box .modal-body', function(html)
+				
+				$cloneForm = $('.basket-form').clone( true );
+				$cloneForm.find("[name=action]").val("new");
+				
+				$.basket.onsubmit( $cloneForm , 'abs', '#absbasket-box .modal-body', function(html)
 				{
 					me.data('product', 'ADDED');
 					$.ajax({
@@ -32,22 +35,11 @@
 						cache	: false,
 						url		: me.attr('action'),
 						data	: me.serialize(),
-						success : function( result )
-						{
-							if ( result.success )
-							{
-								if( result.total == "0р." )
-								{
-									me.Mask('destroy').html( '<p class="h3 text-center">Ошибка<br />Заполнены не все обязательные поля.<br />Воспользуйтесь <a href="/basket/">корзиной</a>.</p>');
-								}
-								else
-								{
-									me.Mask('destroy').html( '<p class="h3 text-center">{$basketextendedfastform_success|default:'Спасибо за заказ!'}.<br />Номер вашего заказа <a href="/basket/?' + result.order_id + '|' + result.order_hash + '" target="_blank">' + result.order_id + '</a>.<br />Сумма заказа ' + result.total + '</p>' );
-								}
-							}
-							else
-							{
-								me.Mask('destroy').html( '<p class="h3 text-center">Ошибка, воспользуйтесь корзиной.</p>');
+						success : function( result ) {
+							if ( result.success ) {
+								me.Mask('destroy').html( '<p class="h3 text-center">{$basketextendedfastform_success|default:'Спасибо за заказ!'}.<br />Номер вашего заказа <a href="/basket/?' + result.order_id + '|' + result.order_hash + '" target="_blank">' + result.order_id + '</a>.<br />Сумма заказа ' + result.total + '</p>' );
+							} else {
+								me.Mask('destroy').html( '<p class="h3 text-center">Ошибка<br />Заполнены не все обязательные поля.<br />Воспользуйтесь <a href="/basket/">корзиной</a>.</p>');
 							}
 							$.basket.loadMini();
 							me.data('product', '');
