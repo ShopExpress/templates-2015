@@ -1,0 +1,16 @@
+{if $ext_map}
+{if $map_src}
+{$map_src}
+{else}
+<div class="map" id="yMap"></div>
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script>
+ymaps.ready(function () {
+    var myMap = new ymaps.Map("yMap", { center: [55.73, 37.75], zoom: 8 }, { searchControlProvider: 'yandex#search' });
+    var result = ymaps.geoQuery(ymaps.geocode('{if $map_address}{$map_address}{else}{$GLOBS.ADRES}{/if}')).applyBoundsToMap(myMap, { checkZoomRange: true });
+    myMap.geoObjects.add(result.clusterize());
+});
+</script>
+{/if}
+{/if}
